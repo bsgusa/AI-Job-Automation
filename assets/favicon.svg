@@ -1,0 +1,10 @@
+<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 4L36 12V28L20 36L4 28V12L20 4Z" fill="url(#fGrad)"/>
+  <path d="M14 16H26M14 20H22M14 24H24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="fGrad" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6C63FF"/>
+      <stop offset="1" stop-color="#3ECFCF"/>
+    </linearGradient>
+  </defs>
+</svg>
