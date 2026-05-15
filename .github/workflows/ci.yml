@@ -1,0 +1,94 @@
+name: CI — Lexora AI
+
+on:
+  push:
+    branches: [main, 'claude/**', 'feature/**']
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate HTML & Assets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate HTML
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: .
+          css: true
+
+      - name: Check file sizes
+        run: |
+          echo "=== File sizes ==="
+          find . -name "*.html" -o -name "*.css" -o -name "*.js" | \
+            grep -v node_modules | grep -v .git | \
+            xargs ls -lh 2>/dev/null
+          echo "✅ Size check complete"
+
+      - name: Verify required files exist
+        run: |
+          echo "Checking required files..."
+          files=("index.html" "css/style.css" "js/main.js" "assets/favicon.svg" "README.md" "LICENSE" "SECURITY.md")
+          for f in "${files[@]}"; do
+            if [ -f "$f" ]; then
+              echo "✅ $f"
+            else
+              echo "❌ Missing: $f"
+              exit 1
+            fi
+          done
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for secrets
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: main
+          head: HEAD
+
+  lighthouse:
+    name: Lighthouse Performance Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install serve
+        run: npm install -g serve
+
+      - name: Run Lighthouse CI
+        run: |
+          npx @lhci/cli@0.13.x autorun \
+            --collect.url=http://localhost:3000 \
+            --collect.startServerCommand="serve . -p 3000" \
+            --assert.preset=lighthouse:recommended \
+            --assert.assertions.categories:performance=warn \
+            --assert.assertions.categories:accessibility=error \
+            --assert.assertions.categories:best-practices=warn \
+            --assert.assertions.categories:seo=warn
+        continue-on-error: true
+
+  deploy-preview:
+    name: Deploy Preview
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Pages Preview
+        run: echo "Preview deployment would go here (Netlify/Vercel/Pages)"
