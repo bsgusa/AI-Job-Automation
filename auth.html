@@ -124,10 +124,10 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="js/config.js" type="module"></script>
 <script type="module">
-import { signInWithMagicLink, getSession, redirectIfAuthed } from './js/auth.js';
+import { signInWithMagicLink, getSession } from './js/auth.js';
 
 // If already logged in, go to dashboard
 (async () => {
@@ -135,9 +135,9 @@ import { signInWithMagicLink, getSession, redirectIfAuthed } from './js/auth.js'
   if (hash && (hash.includes('access_token') || hash.includes('type=magiclink') || hash.includes('type=recovery'))) {
     document.getElementById('loginView').classList.add('hidden');
     document.getElementById('loadingView').classList.remove('hidden');
-    // Supabase handles the hash automatically
+    // Supabase handles the hash automatically via detectSessionInUrl
     setTimeout(async () => {
-      const { data: { session } } = await window._supabase.auth.getSession();
+      const session = await getSession();
       if (session) {
         window.location.href = 'dashboard.html';
       } else {

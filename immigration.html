@@ -468,9 +468,10 @@
 </a>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script type="module">
-import { submitImmigrationIntake } from './js/forms.js';
+import { submitImmigrationIntake, submitDemoRequest } from './js/forms.js';
+import { getSession } from './js/auth.js';
 
 AOS.init({ duration:700, easing:'ease-out-cubic', once:true, offset:60 });
 
@@ -540,16 +541,20 @@ document.getElementById('statusForm').addEventListener('submit', (e) => {
 // Intake form submit
 document.getElementById('intakeForm').addEventListener('submit', async (e) => {
   e.preventDefault();
+  const alertEl = document.getElementById('intakeAlert');
   if (!document.getElementById('consentCheck').checked) {
-    alert('Please confirm the consent checkbox to proceed.');
+    alertEl.textContent = 'Please confirm the consent checkbox to proceed.';
+    alertEl.className = 'dash-alert dash-alert-error show';
     return;
   }
   const btn = document.getElementById('submitIntakeBtn');
   btn.textContent = 'Submitting…';
   btn.disabled = true;
+  alertEl.className = 'dash-alert';
   const fd = new FormData(e.target);
-  const data = {
-    full_name: (fd.get('first_name')||'') + ' ' + (fd.get('last_name')||''),
+  const fullName = ((fd.get('first_name')||'') + ' ' + (fd.get('last_name')||'')).trim();
+  const intakeData = {
+    full_name: fullName,
     email: fd.get('email'),
     phone: fd.get('phone'),
     form_type: fd.get('form_type'),
@@ -558,18 +563,41 @@ document.getElementById('intakeForm').addEventListener('submit', async (e) => {
     country_of_birth: fd.get('country_of_birth'),
     country_of_citizenship: fd.get('country_of_citizenship'),
     case_description: fd.get('case_description'),
-    previous_issues: fd.get('previous_issues'),
     contact_method: fd.get('contact_method'),
-    document_notes: fd.get('document_notes'),
-    documents_ready: [...fd.getAll('docs')].join(','),
+    documents_ready: [...fd.getAll('docs')].length > 0,
   };
-  const { error } = await submitImmigrationIntake(data);
+
+  // Check authentication: authenticated users get a tracked intake record;
+  // anonymous visitors are saved as a demo/contact request so no login is required.
+  const session = await getSession();
+  let error;
+  if (session?.user) {
+    ({ error } = await submitImmigrationIntake({ ...intakeData, user_id: session.user.id }));
+  } else {
+    const message = [
+      `Form: ${intakeData.form_type}`,
+      `Status: ${intakeData.current_status || '—'}`,
+      `Country: ${intakeData.country_of_birth || '—'}`,
+      intakeData.case_description ? `Details: ${intakeData.case_description}` : '',
+      `Previous issues: ${fd.get('previous_issues') || 'none'}`,
+      `Docs ready: ${[...fd.getAll('docs')].join(', ') || 'none listed'}`,
+    ].filter(Boolean).join('\n');
+    ({ error } = await submitDemoRequest({
+      name: intakeData.full_name,
+      email: intakeData.email,
+      phone: intakeData.phone,
+      interest: intakeData.form_type,
+      contact_method: intakeData.contact_method,
+      message,
+      source: 'immigration_intake',
+    }));
+  }
+
   btn.textContent = 'Submit Intake for Attorney Review →';
   btn.disabled = false;
   if (error) {
-    const alert = document.getElementById('intakeAlert');
-    alert.textContent = 'Submission error: ' + error.message + '. Please try again or call (727) 260-1783.';
-    alert.className = 'dash-alert dash-alert-error show';
+    alertEl.textContent = 'Submission error: ' + error.message + '. Please try again or call (727) 260-1783.';
+    alertEl.className = 'dash-alert dash-alert-error show';
   } else {
     document.getElementById('intakeForm').classList.add('hidden');
     document.getElementById('intakeSuccess').classList.remove('hidden');
