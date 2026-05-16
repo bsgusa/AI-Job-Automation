@@ -4,837 +4,1009 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lexora AI — Legal Intelligence for the Modern World</title>
-  <meta name="description" content="Lexora AI delivers end-to-end legal technology solutions powered by artificial intelligence. From contract analysis to litigation strategy, we transform how the [...]
+  <meta name="description" content="Lexora AI delivers end-to-end legal technology powered by LexLLM™ — our AI trained on 500M+ legal documents. Contract analysis, litigation strategy, compliance, M&A due diligence." />
   <meta property="og:title" content="Lexora AI — Legal Intelligence for the Modern World" />
-  <meta property="og:description" content="End-to-end AI legal tech solutions trusted by leading firms worldwide." />
+  <meta property="og:description" content="End-to-end AI legal tech solutions trusted by 500+ leading firms worldwide." />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#" class="logo">
-        <div class="logo-icon">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 4L36 12V28L20 36L4 28V12L20 4Z" fill="url(#logoGrad)" />
-            <path d="M14 16H26M14 20H22M14 24H24" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            <defs>
-              <linearGradient id="logoGrad" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#6C63FF"/>
-                <stop offset="100%" stop-color="#3ECFCF"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <span class="logo-text">Lexora <span class="logo-ai">AI</span></span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#solutions">Solutions</a></li>
-        <li><a href="#technology">Technology</a></li>
-        <li><a href="#industries">Industries</a></li>
-        <li><a href="#results">Results</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-      <div class="nav-cta">
-        <a href="#contact" class="btn btn-ghost">Sign In</a>
-        <a href="#contact" class="btn btn-primary">Get Demo</a>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+<!-- Cursor glow -->
+<div class="cursor-glow"></div>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="#solutions">Solutions</a></li>
-      <li><a href="#technology">Technology</a></li>
-      <li><a href="#industries">Industries</a></li>
-      <li><a href="#results">Results</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact" class="btn btn-primary">Get Demo</a></li>
-    </ul>
+<!-- Top contact bar -->
+<div class="top-bar">
+  <div class="top-bar-links">
+    <a href="tel:+17272601783" class="top-bar-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.22 2.84 2 2 0 012.22.66h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.09a16 16 0 006.09 6.09l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      (727) 260-1783
+    </a>
+    <a href="mailto:support@lexoraai.org" class="top-bar-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      support@lexoraai.org
+    </a>
+    <a href="https://wa.me/17272601783" class="top-bar-link whatsapp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
   </div>
+</div>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <div class="grid-overlay"></div>
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-      <canvas id="particleCanvas"></canvas>
-    </div>
-    <div class="hero-content">
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-brand">
+    <svg class="nav-logo" viewBox="0 0 40 40" fill="none">
+      <path d="M20 3L37 12V28L20 37L3 28V12L20 3Z" fill="url(#navGrad)"/>
+      <path d="M13 16H27M13 20H22M13 24H25" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <defs>
+        <linearGradient id="navGrad" x1="3" y1="3" x2="37" y2="37" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#C9A84C"/>
+          <stop offset="100%" stop-color="#F0D070"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="nav-name">Lexora AI</span>
+  </a>
+  <div class="nav-links">
+    <a href="#solutions" class="nav-link">Solutions</a>
+    <a href="#technology" class="nav-link">Technology</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="#results" class="nav-link">Results</a>
+    <a href="#team" class="nav-link">Team</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-cta">
+    <a href="tel:+17272601783" class="nav-phone">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.22 2.84 2 2 0 012.22.66h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.09a16 16 0 006.09 6.09l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      (727) 260-1783
+    </a>
+    <a href="#contact" class="btn-outline">Sign In</a>
+    <a href="#contact" class="btn-primary">Get Demo</a>
+  </div>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">&#x2715;</button>
+  <a href="#solutions" class="nav-link">Solutions</a>
+  <a href="#technology" class="nav-link">Technology</a>
+  <a href="#pricing" class="nav-link">Pricing</a>
+  <a href="#results" class="nav-link">Results</a>
+  <a href="#team" class="nav-link">Team</a>
+  <a href="#contact" class="nav-link">Contact</a>
+  <div class="mobile-contact-links">
+    <a href="tel:+17272601783" class="mobile-contact-link">📞 (727) 260-1783</a>
+    <a href="mailto:support@lexoraai.org" class="mobile-contact-link">✉️ support@lexoraai.org</a>
+    <a href="https://wa.me/17272601783" class="mobile-contact-link wa" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-bg-gradient"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <!-- Left -->
+    <div class="hero-left">
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        <span>Now available globally — 47 jurisdictions</span>
+        Now live — 47 jurisdictions worldwide
       </div>
       <h1 class="hero-title">
         The Future of Law<br/>
         <span class="gradient-text">Runs on Lexora AI</span>
       </h1>
-      <p class="hero-subtitle">
-        End-to-end legal intelligence that reads contracts, predicts outcomes,<br class="desktop-only"/>
-        automates compliance, and empowers every lawyer on Earth.
-      </p>
+      <p class="hero-subtitle">End-to-end legal intelligence that reads contracts, predicts outcomes, automates compliance, and empowers every lawyer on Earth — powered by LexLLM™, trained on 500M+ legal documents.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-hero-primary">
-          <span>Start Free Trial</span>
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="#contact" class="btn-primary btn-lg">
+          Start Free Trial
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#solutions" class="btn btn-hero-ghost">
-          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M10 8l6 4-6 4V8z" fill="currentColor"/></svg>
-          <span>Watch Demo</span>
+        <a href="https://wa.me/17272601783" class="btn-whatsapp-hero" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
         </a>
+        <a href="#solutions" class="btn-outline btn-lg">Watch Demo</a>
       </div>
       <div class="hero-trust">
-        <span class="trust-label">Trusted by legal teams at</span>
-        <div class="trust-logos">
-          <span class="trust-firm">Clifford Chance</span>
-          <span class="trust-divider">·</span>
-          <span class="trust-firm">Latham &amp; Watkins</span>
-          <span class="trust-divider">·</span>
-          <span class="trust-firm">Baker McKenzie</span>
-          <span class="trust-divider">·</span>
-          <span class="trust-firm">DLA Piper</span>
-          <span class="trust-divider">·</span>
-          <span class="trust-firm">Freshfields</span>
-        </div>
+        <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> SOC 2 Certified</div>
+        <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 14-day free trial</div>
+        <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg> 500+ firms trust us</div>
+        <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4s contract analysis</div>
       </div>
     </div>
+
+    <!-- Right — Dashboard card -->
     <div class="hero-visual">
-      <div class="dashboard-mockup">
-        <div class="mockup-header">
-          <div class="mockup-dots">
-            <span></span><span></span><span></span>
-          </div>
-          <span class="mockup-title">Lexora AI · Contract Intelligence</span>
+      <div class="floating-badge badge-tl">🔒 AES-256 Encrypted</div>
+      <div class="hero-card">
+        <div class="card-header">
+          <span class="card-title">Lexora AI · Live Analysis</span>
+          <span class="card-badge">● LIVE</span>
         </div>
-        <div class="mockup-body">
-          <div class="mockup-sidebar">
-            <div class="sidebar-item active">
-              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2v1a2 2 0 002 2h4a2 2 0 002-2V3a2 2 0 012 2v11a[...]
-              Contracts
-            </div>
-            <div class="sidebar-item">
-              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100[...]
-              Risk Analysis
-            </div>
-            <div class="sidebar-item">
-              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7[...]
-              Analytics
-            </div>
+        <div class="card-metrics">
+          <div class="metric">
+            <div class="metric-value" data-target="94" data-suffix="%">0%</div>
+            <div class="metric-label">Accuracy</div>
           </div>
-          <div class="mockup-main">
-            <div class="mockup-card analysis-card">
-              <div class="card-label">AI Analysis Complete</div>
-              <div class="card-title">NDA — TechCorp Inc.</div>
-              <div class="risk-bar">
-                <span class="risk-label">Risk Score</span>
-                <div class="risk-track">
-                  <div class="risk-fill" style="width:23%"></div>
-                </div>
-                <span class="risk-value low">Low</span>
-              </div>
-              <div class="clause-list">
-                <div class="clause-item ok">
-                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0[...]
-                  Confidentiality clause — standard
-                </div>
-                <div class="clause-item ok">
-                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0[...]
-                  Term &amp; termination — 2 years
-                </div>
-                <div class="clause-item warn">
-                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1[...]
-                  IP assignment — review needed
-                </div>
-              </div>
-            </div>
-            <div class="mockup-stats">
-              <div class="stat-pill">
-                <span class="stat-num">94%</span>
-                <span class="stat-lbl">Accuracy</span>
-              </div>
-              <div class="stat-pill">
-                <span class="stat-num">3.2s</span>
-                <span class="stat-lbl">Analysis</span>
-              </div>
-              <div class="stat-pill">
-                <span class="stat-num">SOC2</span>
-                <span class="stat-lbl">Certified</span>
-              </div>
-            </div>
+          <div class="metric">
+            <div class="metric-value">3.8s</div>
+            <div class="metric-label">Avg Speed</div>
           </div>
+          <div class="metric">
+            <div class="metric-value" data-target="47" data-suffix="+">0+</div>
+            <div class="metric-label">Jurisdictions</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="progress-item">
+            <div class="progress-label"><span>Contract Review</span><span>94%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:94%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Risk Detection</span><span>91%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:91%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Compliance Check</span><span>99%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:99%"></div></div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-status"><span class="status-dot"></span> All systems operational</div>
+          <span style="font-size:.75rem;color:var(--text-muted)">99.99% uptime</span>
+        </div>
+      </div>
+      <div class="floating-badge badge-br">✅ SOC 2 · ISO 27001 · GDPR</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     STATS BAR
+══════════════════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item" data-aos="fade-up">
+      <div class="stat-value" data-target="2400000" data-suffix="M+" data-float="false">0</div>
+      <div class="stat-label">Documents Analyzed</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="stat-value" data-target="500" data-suffix="+">0</div>
+      <div class="stat-label">Law Firms & Enterprises</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="stat-value" data-target="47" data-suffix="+">0</div>
+      <div class="stat-label">Jurisdictions Covered</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+      <div class="stat-value" data-target="60" data-suffix="%">0</div>
+      <div class="stat-label">Avg Cost Reduction</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SOLUTIONS
+══════════════════════════════════════════════════════ -->
+<section class="solutions" id="solutions">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-label">Solutions</span>
+    <h2 class="section-title">Everything Legal. <span class="gradient-text">Powered by AI.</span></h2>
+    <p class="section-subtitle">From solo practitioners to global enterprises — Lexora AI handles every dimension of legal work with precision and speed.</p>
+  </div>
+  <div class="solutions-grid">
+
+    <div class="solution-card solution-featured" data-aos="fade-up">
+      <div class="solution-icon">📄</div>
+      <span class="section-label" style="position:absolute;top:1.5rem;right:1.5rem;margin:0">Most Popular</span>
+      <h3 class="solution-title">Contract Intelligence</h3>
+      <p class="solution-desc">Instantly review, analyze, and redline contracts with AI that understands legal nuance across 120+ contract types and 47 jurisdictions. From NDAs to M&A agreements.</p>
+      <div class="solution-stats">
+        <span class="stat-badge">94% accuracy</span>
+        <span class="stat-badge">4s analysis</span>
+        <span class="stat-badge">120+ types</span>
+      </div>
+      <a href="#contact" class="solution-link">Explore Contract AI →</a>
+    </div>
+
+    <div class="solution-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="solution-icon">⚖️</div>
+      <h3 class="solution-title">Litigation Intelligence</h3>
+      <p class="solution-desc">Predict case outcomes, identify winning arguments, and build bulletproof litigation strategies backed by millions of precedents across all 50 US states and 27 EU member states.</p>
+      <div class="solution-stats">
+        <span class="stat-badge">85% outcome accuracy</span>
+        <span class="stat-badge">180M+ cases</span>
+      </div>
+      <a href="#contact" class="solution-link">Explore Litigation AI →</a>
+    </div>
+
+    <div class="solution-card" data-aos="fade-up" data-aos-delay="150">
+      <div class="solution-icon">🛡️</div>
+      <h3 class="solution-title">Regulatory Compliance</h3>
+      <p class="solution-desc">Stay ahead of regulations globally. Real-time monitoring across GDPR, CCPA, SOX, AML/KYC, and 200+ regulatory frameworks — with instant alerts and automated reports.</p>
+      <div class="solution-stats">
+        <span class="stat-badge">200+ frameworks</span>
+        <span class="stat-badge">Real-time alerts</span>
+      </div>
+      <a href="#contact" class="solution-link">Explore Compliance AI →</a>
+    </div>
+
+    <div class="solution-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="solution-icon">🔍</div>
+      <h3 class="solution-title">Legal Research Engine</h3>
+      <p class="solution-desc">Supercharge your research with AI that synthesizes case law, statutes, and commentary in seconds. Natural-language queries return validated, cited results instantly.</p>
+      <div class="solution-stats">
+        <span class="stat-badge">500M+ docs</span>
+        <span class="stat-badge">Auto-citations</span>
+      </div>
+      <a href="#contact" class="solution-link">Explore Research AI →</a>
+    </div>
+
+    <div class="solution-card" data-aos="fade-up" data-aos-delay="250">
+      <div class="solution-icon">💡</div>
+      <h3 class="solution-title">IP & Patent Intelligence</h3>
+      <p class="solution-desc">Protect your innovations with AI-powered patent searches, freedom-to-operate analysis, and portfolio management across all major IP offices worldwide.</p>
+      <div class="solution-stats">
+        <span class="stat-badge">40M+ patents</span>
+        <span class="stat-badge">FTO reports</span>
+      </div>
+      <a href="#contact" class="solution-link">Explore IP AI →</a>
+    </div>
+
+    <div class="solution-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="solution-icon">🏢</div>
+      <h3 class="solution-title">M&A Due Diligence</h3>
+      <p class="solution-desc">Accelerate deal timelines with AI-powered due diligence that reviews thousands of documents in hours, not months — with red-flag identification and risk matrices.</p>
+      <div class="solution-stats">
+        <span class="stat-badge">72h full review</span>
+        <span class="stat-badge">Auto risk matrix</span>
+      </div>
+      <a href="#contact" class="solution-link">Explore M&A AI →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     TECHNOLOGY
+══════════════════════════════════════════════════════ -->
+<section class="technology" id="technology">
+  <div class="tech-inner">
+    <div class="tech-visual" data-aos="fade-right">
+      <div class="tech-floating">
+        <span>⚡ 3.8s avg response</span>
+      </div>
+      <div class="tech-diagram">
+        <span class="highlight">// LexLLM™ Architecture</span><br/>
+        <span class="accent">model</span>: custom-transformer-legal-v2<br/>
+        <span class="accent">context</span>: <span class="success">200,000</span> tokens<br/>
+        <span class="accent">training</span>: <span class="success">500M+</span> legal docs<br/>
+        <span class="accent">jurisdictions</span>: <span class="success">47</span> legal systems<br/>
+        <span class="accent">retrieval</span>: RAG + live DB sync<br/>
+        <span class="accent">citator</span>: real-time validity checks<br/><br/>
+        <span class="highlight">// Security Stack</span><br/>
+        <span class="accent">encryption</span>: AES-256-GCM at rest<br/>
+        <span class="accent">transit</span>: TLS 1.3 enforced<br/>
+        <span class="accent">isolation</span>: per-tenant compute<br/>
+        <span class="accent">certifications</span>: SOC2 · ISO27001<br/>
+        <span class="accent">uptime</span>: <span class="success">99.99%</span> SLA<br/><br/>
+        <span class="success">► All systems operational</span>
+      </div>
+    </div>
+    <div class="tech-content">
+      <div data-aos="fade-left">
+        <span class="section-label">Technology</span>
+        <h2 class="section-title" style="margin-top:.8rem">Built Different.<br/><span class="gradient-text">Built for Law.</span></h2>
+        <p style="color:var(--text-muted);font-size:.95rem;line-height:1.8;margin:1rem 0 2rem">LexLLM™ isn't a general-purpose model wrapped in a legal interface. We trained purpose-built large language models from scratch on 500M+ legal documents, case law, statutes, and regulatory filings.</p>
+      </div>
+      <div class="tech-feature" data-aos="fade-left" data-aos-delay="100">
+        <div class="tf-icon">🧠</div>
+        <div>
+          <div class="tf-title">LexLLM™ — Legal-Native AI</div>
+          <div class="tf-desc">Trained on 500M+ legal documents with jurisdiction-specific fine-tuning across 47 legal systems. 200K context window handles entire contracts in one pass.</div>
+        </div>
+      </div>
+      <div class="tech-feature" data-aos="fade-left" data-aos-delay="150">
+        <div class="tf-icon">🔒</div>
+        <div>
+          <div class="tf-title">Zero-Trust Security</div>
+          <div class="tf-desc">SOC 2 Type II, ISO 27001, GDPR, HIPAA, FedRAMP. AES-256 encryption, TLS 1.3, HSM-backed key management with 90-day rotation.</div>
+        </div>
+      </div>
+      <div class="tech-feature" data-aos="fade-left" data-aos-delay="200">
+        <div class="tf-icon">🌐</div>
+        <div>
+          <div class="tf-title">47-Jurisdiction Coverage</div>
+          <div class="tf-desc">Native understanding of US (all 50 states), UK, all 27 EU member states, Australia, Canada, Singapore, UAE, Japan, India, and more.</div>
+        </div>
+      </div>
+      <div class="tech-feature" data-aos="fade-left" data-aos-delay="250">
+        <div class="tf-icon">⚡</div>
+        <div>
+          <div class="tf-title">Real-Time Processing</div>
+          <div class="tf-desc">Analyze a 500-page contract in under 4 seconds. Legal research that takes days completes in seconds. 99.99% uptime SLA with automatic failover.</div>
         </div>
       </div>
     </div>
-    <div class="scroll-indicator">
-      <span>Scroll to explore</span>
-      <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     INDUSTRIES
+══════════════════════════════════════════════════════ -->
+<section class="industries" id="industries">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-label">Industries</span>
+    <h2 class="section-title">Legal Intelligence <span class="gradient-text">For Every Sector</span></h2>
+    <p class="section-subtitle">Whether you're a Fortune 500 legal team or a boutique practice, Lexora AI scales to your needs.</p>
+  </div>
+  <div class="industries-grid">
+    <div class="industry-card" data-aos="zoom-in"><div class="industry-icon">⚖️</div><div class="industry-name">Law Firms</div><div class="industry-count">BigLaw to boutique — 3x faster deals</div></div>
+    <div class="industry-card" data-aos="zoom-in" data-aos-delay="60"><div class="industry-icon">🏢</div><div class="industry-name">Corporate Legal</div><div class="industry-count">60% cost reduction for in-house teams</div></div>
+    <div class="industry-card" data-aos="zoom-in" data-aos-delay="120"><div class="industry-icon">🏦</div><div class="industry-name">Financial Services</div><div class="industry-count">MiFID II, Dodd-Frank, Basel III ready</div></div>
+    <div class="industry-card" data-aos="zoom-in" data-aos-delay="180"><div class="industry-icon">🏥</div><div class="industry-name">Healthcare</div><div class="industry-count">HIPAA compliant, 100% audit-ready</div></div>
+    <div class="industry-card" data-aos="zoom-in" data-aos-delay="240"><div class="industry-icon">💻</div><div class="industry-name">Technology & IP</div><div class="industry-count">94% IP conflict detection rate</div></div>
+    <div class="industry-card" data-aos="zoom-in" data-aos-delay="300"><div class="industry-icon">🏛️</div><div class="industry-name">Government</div><div class="industry-count">FedRAMP authorized — 12 countries</div></div>
+    <div class="industry-card" data-aos="zoom-in" data-aos-delay="360"><div class="industry-icon">🌍</div><div class="industry-name">NGOs & Legal Aid</div><div class="industry-count">Access-to-Justice Initiative — free tier</div></div>
+    <div class="industry-card" data-aos="zoom-in" data-aos-delay="420"><div class="industry-icon">🔬</div><div class="industry-name">Life Sciences</div><div class="industry-count">FDA, EMA, patent portfolio management</div></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     PRICING
+══════════════════════════════════════════════════════ -->
+<section class="pricing" id="pricing">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-label">Pricing</span>
+    <h2 class="section-title">Simple, <span class="gradient-text">Transparent Pricing</span></h2>
+    <p class="section-subtitle">Start free. Scale as you grow. No hidden fees, no credit card required for trial.</p>
+  </div>
+  <div class="pricing-grid">
+
+    <div class="pricing-card" data-aos="fade-up">
+      <div class="pricing-tier">Starter</div>
+      <div class="pricing-price"><span class="price-amount">$299</span><span class="price-period">/month</span></div>
+      <div class="pricing-desc">Perfect for solo attorneys and small practices getting started with AI-powered legal work.</div>
+      <ul class="pricing-features">
+        <li>✓ Up to 100 documents/month</li>
+        <li>✓ Contract Intelligence (basic)</li>
+        <li>✓ Legal Research Engine</li>
+        <li>✓ 5 jurisdictions</li>
+        <li>✓ Email support (48h)</li>
+        <li>✓ SOC 2 compliant</li>
+        <li style="color:var(--text-muted)">✗ API access</li>
+        <li style="color:var(--text-muted)">✗ Custom integrations</li>
+      </ul>
+      <a href="#contact" class="btn-outline" style="width:100%;justify-content:center;margin-top:auto">Start Free Trial</a>
     </div>
-  </section>
 
-  <!-- Stats Bar -->
-  <section class="stats-bar">
-    <div class="stats-container">
-      <div class="stat-item" data-count="2.4" data-suffix="M+">
-        <span class="stat-number" data-target="2.4">0</span><span class="stat-suffix">M+</span>
-        <span class="stat-desc">Documents Analyzed</span>
+    <div class="pricing-card pricing-featured" data-aos="fade-up" data-aos-delay="100">
+      <div class="pricing-badge">Most Popular</div>
+      <div class="pricing-tier">Professional</div>
+      <div class="pricing-price"><span class="price-amount">$999</span><span class="price-period">/month</span></div>
+      <div class="pricing-desc">For growing law firms and in-house teams that need full platform access and integrations.</div>
+      <ul class="pricing-features">
+        <li>✓ Unlimited documents</li>
+        <li>✓ All 6 AI modules</li>
+        <li>✓ 47 jurisdictions</li>
+        <li>✓ API access (10K calls/mo)</li>
+        <li>✓ iManage, NetDocuments sync</li>
+        <li>✓ SSO (Okta, Azure AD)</li>
+        <li>✓ Email + chat (24h SLA)</li>
+        <li>✓ GDPR, HIPAA compliant</li>
+      </ul>
+      <a href="#contact" class="btn-primary" style="width:100%;justify-content:center;margin-top:auto">Start Free Trial</a>
+    </div>
+
+    <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="pricing-tier">Enterprise</div>
+      <div class="pricing-price"><span class="price-amount">Custom</span></div>
+      <div class="pricing-desc">For large law firms, Fortune 500 legal teams, and organizations with complex requirements.</div>
+      <ul class="pricing-features">
+        <li>✓ Unlimited everything</li>
+        <li>✓ Dedicated compute cluster</li>
+        <li>✓ Custom model fine-tuning</li>
+        <li>✓ Unlimited API access</li>
+        <li>✓ White-label options</li>
+        <li>✓ Dedicated CSM</li>
+        <li>✓ 4-hour SLA support</li>
+        <li>✓ FedRAMP, CCPA ready</li>
+      </ul>
+      <a href="#contact" class="btn-outline" style="width:100%;justify-content:center;margin-top:auto">Contact Sales</a>
+    </div>
+
+    <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="pricing-tier">Government</div>
+      <div class="pricing-price"><span class="price-amount">Custom</span></div>
+      <div class="pricing-desc">Built for public sector organizations, government agencies, and multilateral institutions.</div>
+      <ul class="pricing-features">
+        <li>✓ FedRAMP Authorized</li>
+        <li>✓ Air-gapped deployment option</li>
+        <li>✓ On-premises available</li>
+        <li>✓ FISMA compliant</li>
+        <li>✓ 24/7 dedicated support</li>
+        <li>✓ Custom SLAs</li>
+        <li>✓ Government procurement</li>
+        <li>✓ Multi-agency licensing</li>
+      </ul>
+      <a href="#contact" class="btn-outline" style="width:100%;justify-content:center;margin-top:auto">Request Proposal</a>
+    </div>
+
+  </div>
+  <div class="pricing-footer" data-aos="fade-up">
+    <p>All plans include a <strong>14-day free trial</strong> with full access. No credit card required.</p>
+    <div class="pricing-contact">
+      <span>Questions? Talk to us directly:</span>
+      <a href="tel:+17272601783" class="btn-ghost">📞 (727) 260-1783</a>
+      <a href="https://wa.me/17272601783" class="btn-whatsapp-small" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     RESULTS / TESTIMONIALS
+══════════════════════════════════════════════════════ -->
+<section class="results" id="results">
+  <div class="results-inner">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">Results</span>
+      <h2 class="section-title">Real Firms. <span class="gradient-text">Real Results.</span></h2>
+      <p class="section-subtitle">Measurable impact across contract review, litigation, compliance, and M&A.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card" data-aos="fade-up">
+        <div class="result-metric">97%</div>
+        <div class="result-desc">Time reduction on contract review</div>
+        <div class="result-context">NovaTech Global processed 12,000+ contracts in a year — previously took 3 days each, now 45 minutes.</div>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item" data-count="98" data-suffix="%">
-        <span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span>
-        <span class="stat-desc">Client Satisfaction</span>
+      <div class="result-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="result-metric">34%</div>
+        <div class="result-desc">Win rate improvement in litigation</div>
+        <div class="result-context">Rodriguez & Associates used outcome prediction to advise clients on settlement — win rate jumped 34% in year one.</div>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item" data-count="47" data-suffix="+">
-        <span class="stat-number" data-target="47">0</span><span class="stat-suffix">+</span>
-        <span class="stat-desc">Jurisdictions Covered</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item" data-count="60" data-suffix="%">
-        <span class="stat-number" data-target="60">0</span><span class="stat-suffix">%</span>
-        <span class="stat-desc">Cost Reduction</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item" data-count="500" data-suffix="+">
-        <span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span>
-        <span class="stat-desc">Law Firms &amp; Enterprises</span>
+      <div class="result-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="result-metric">$2.3B</div>
+        <div class="result-desc">Deal reviewed in 72 hours</div>
+        <div class="result-context">Apex Capital ran M&A due diligence on a $2.3B acquisition — 47,000 documents reviewed in 3 days by a team of 3.</div>
       </div>
     </div>
-  </section>
-
-  <!-- Solutions Section -->
-  <section class="solutions" id="solutions">
-    <div class="section-container">
-      <div class="section-header">
-        <div class="section-tag">Solutions</div>
-        <h2 class="section-title">Everything Legal. <span class="gradient-text">Powered by AI.</span></h2>
-        <p class="section-subtitle">From solo practitioners to global enterprises — Lexora AI handles every dimension of legal work with precision and speed.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial" data-aos="fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"Lexora AI reduced our contract review time from 3 days to 45 minutes. It's not just a tool — it's a fundamental shift in how we practice law."</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">SC</div>
+          <div><div class="author-name">Sarah Chen</div><div class="author-title">General Counsel, NovaTech Global</div></div>
+        </div>
       </div>
-      <div class="solutions-grid">
-
-        <div class="solution-card featured-card">
-          <div class="card-glow"></div>
-          <div class="card-icon">
-            <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="url(#grad1)"/><path d="M14 24h20M14 18h14M14 30h16" stroke="white" stroke-width="2.5" stroke-linecap="r[...]
-          </div>
-          <div class="card-tag">Most Popular</div>
-          <h3>Contract Intelligence</h3>
-          <p>Instantly review, analyze, and redline contracts with AI that understands legal nuance across 120+ contract types and 47 jurisdictions.</p>
-          <ul class="feature-list">
-            <li>Automated risk scoring</li>
-            <li>Clause library comparison</li>
-            <li>Multi-party negotiation tracking</li>
-            <li>Jurisdiction-specific compliance</li>
-          </ul>
-          <a href="#contact" class="card-link">Explore Contract AI →</a>
+      <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"The litigation prediction engine changed how we advise clients on settlement decisions. Our win rate improved by 34% in the first year alone."</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">MR</div>
+          <div><div class="author-name">Michael Rodriguez</div><div class="author-title">Partner, Rodriguez & Associates</div></div>
         </div>
-
-        <div class="solution-card">
-          <div class="card-icon">
-            <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="url(#grad2)"/><path d="M24 14v6M24 28v6M14 24h6M28 24h6" stroke="white" stroke-width="2.5" stroke-linec[...]
-          </div>
-          <h3>Litigation Intelligence</h3>
-          <p>Predict case outcomes, identify winning arguments, and build bulletproof litigation strategies backed by millions of precedents.</p>
-          <ul class="feature-list">
-            <li>Outcome prediction engine</li>
-            <li>Precedent discovery</li>
-            <li>Judge &amp; court analytics</li>
-            <li>Brief drafting automation</li>
-          </ul>
-          <a href="#contact" class="card-link">Explore Litigation AI →</a>
-        </div>
-
-        <div class="solution-card">
-          <div class="card-icon">
-            <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="url(#grad3)"/><path d="M16 20l8-6 8 6v14H16V20z" stroke="white" stroke-width="2.5" stroke-linejoin="rou[...]
-          </div>
-          <h3>Regulatory Compliance</h3>
-          <p>Stay ahead of regulations globally. Real-time monitoring across GDPR, CCPA, SOX, AML/KYC, and 200+ regulatory frameworks.</p>
-          <ul class="feature-list">
-            <li>Real-time regulatory alerts</li>
-            <li>Automated compliance reports</li>
-            <li>Policy gap analysis</li>
-            <li>Audit trail management</li>
-          </ul>
-          <a href="#contact" class="card-link">Explore Compliance AI →</a>
-        </div>
-
-        <div class="solution-card">
-          <div class="card-icon">
-            <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="url(#grad4)"/><circle cx="18" cy="20" r="5" stroke="white" stroke-width="2.5"/><circle cx="30" cy="20" [...]
-          </div>
-          <h3>Legal Research Engine</h3>
-          <p>Supercharge your research with AI that synthesizes case law, statutes, and commentary in seconds — not days.</p>
-          <ul class="feature-list">
-            <li>Natural language search</li>
-            <li>Cross-jurisdictional analysis</li>
-            <li>Citator &amp; validity checks</li>
-            <li>Memo auto-generation</li>
-          </ul>
-          <a href="#contact" class="card-link">Explore Research AI →</a>
-        </div>
-
-        <div class="solution-card">
-          <div class="card-icon">
-            <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="url(#grad5)"/><path d="M24 15l2.5 5 5.5.8-4 3.9.9 5.5L24 27.7l-4.9 2.5.9-5.5-4-3.9 5.5-.8L24 15z" strok[...]
-          </div>
-          <h3>IP &amp; Patent Intelligence</h3>
-          <p>Protect your innovations with AI-powered patent searches, freedom-to-operate analysis, and portfolio management.</p>
-          <ul class="feature-list">
-            <li>Prior art search automation</li>
-            <li>Patent landscape analysis</li>
-            <li>Freedom-to-operate reports</li>
-            <li>Portfolio valuation</li>
-          </ul>
-          <a href="#contact" class="card-link">Explore IP AI →</a>
-        </div>
-
-        <div class="solution-card">
-          <div class="card-icon">
-            <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="url(#grad6)"/><path d="M15 32V20l9-6 9 6v12" stroke="white" stroke-width="2.5" stroke-linejoin="round"/[...]
-          </div>
-          <h3>M&amp;A Due Diligence</h3>
-          <p>Accelerate deal timelines with AI-powered due diligence that reviews thousands of documents in hours, not months.</p>
-          <ul class="feature-list">
-            <li>Data room automation</li>
-            <li>Red flag identification</li>
-            <li>Risk matrix generation</li>
-            <li>Deal comparison benchmarks</li>
-          </ul>
-          <a href="#contact" class="card-link">Explore M&amp;A AI →</a>
-        </div>
-
       </div>
-    </div>
-  </section>
-
-  <!-- SVG Gradient Definitions -->
-  <svg style="display:none;">
-    <defs>
-      <linearGradient id="grad1" x1="0" y1="0" x2="48" y2="48">
-        <stop offset="0%" stop-color="#6C63FF"/>
-        <stop offset="100%" stop-color="#3ECFCF"/>
-      </linearGradient>
-      <linearGradient id="grad2" x1="0" y1="0" x2="48" y2="48">
-        <stop offset="0%" stop-color="#FF6584"/>
-        <stop offset="100%" stop-color="#FF9A5C"/>
-      </linearGradient>
-      <linearGradient id="grad3" x1="0" y1="0" x2="48" y2="48">
-        <stop offset="0%" stop-color="#11998E"/>
-        <stop offset="100%" stop-color="#38EF7D"/>
-      </linearGradient>
-      <linearGradient id="grad4" x1="0" y1="0" x2="48" y2="48">
-        <stop offset="0%" stop-color="#F59E0B"/>
-        <stop offset="100%" stop-color="#FBBF24"/>
-      </linearGradient>
-      <linearGradient id="grad5" x1="0" y1="0" x2="48" y2="48">
-        <stop offset="0%" stop-color="#EF4444"/>
-        <stop offset="100%" stop-color="#F87171"/>
-      </linearGradient>
-      <linearGradient id="grad6" x1="0" y1="0" x2="48" y2="48">
-        <stop offset="0%" stop-color="#8B5CF6"/>
-        <stop offset="100%" stop-color="#EC4899"/>
-      </linearGradient>
-      <linearGradient id="coreGrad" x1="4" y1="4" x2="36" y2="36">
-        <stop offset="0%" stop-color="#6C63FF"/>
-        <stop offset="100%" stop-color="#3ECFCF"/>
-      </linearGradient>
-      <linearGradient id="footerLogoGrad" x1="4" y1="4" x2="36" y2="36">
-        <stop offset="0%" stop-color="#6C63FF"/>
-        <stop offset="100%" stop-color="#3ECFCF"/>
-      </linearGradient>
-    </defs>
-  </svg>
-
-  <!-- Technology Section -->
-  <section class="technology" id="technology">
-    <div class="tech-bg">
-      <div class="tech-orb"></div>
-    </div>
-    <div class="section-container">
-      <div class="tech-layout">
-        <div class="tech-content">
-          <div class="section-tag">Technology</div>
-          <h2 class="section-title">Built Different.<br/><span class="gradient-text">Built for Law.</span></h2>
-          <p class="tech-desc">Lexora AI isn't a general-purpose model wrapped in a legal interface. We trained purpose-built large language models on 500M+ legal documents, case law, statutes, a[...]
-          <div class="tech-pillars">
-            <div class="pillar">
-              <div class="pillar-icon">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoi[...]
-              </div>
-              <div class="pillar-text">
-                <strong>LexLLM™ — Legal-Native Models</strong>
-                <span>Trained on 500M+ legal documents with jurisdiction-specific fine-tuning</span>
-              </div>
-            </div>
-            <div class="pillar">
-              <div class="pillar-icon">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><[...]
-              </div>
-              <div class="pillar-text">
-                <strong>Zero-Trust Security Architecture</strong>
-                <span>SOC 2 Type II, ISO 27001, GDPR compliant with end-to-end encryption</span>
-              </div>
-            </div>
-            <div class="pillar">
-              <div class="pillar-icon">
-                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" stro[...]
-              </div>
-              <div class="pillar-text">
-                <strong>47-Jurisdiction Coverage</strong>
-                <span>Native understanding of US, EU, UK, APAC, and emerging market legal systems</span>
-              </div>
-            </div>
-            <div class="pillar">
-              <div class="pillar-icon">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="pillar-text">
-                <strong>Real-Time Processing</strong>
-                <span>Analyze 500-page contracts in under 4 seconds with 99.9% uptime SLA</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tech-visual">
-          <div class="tech-diagram">
-            <div class="diagram-center">
-              <div class="center-ring ring-1"></div>
-              <div class="center-ring ring-2"></div>
-              <div class="center-ring ring-3"></div>
-              <div class="center-core">
-                <svg viewBox="0 0 40 40" fill="none"><path d="M20 4L36 12V28L20 36L4 28V12L20 4Z" fill="url(#coreGrad)"/><path d="M14 20h12M14 16h8M14 24h10" stroke="white" stroke-width="2" strok[...]
-                <span>LexLLM™</span>
-              </div>
-              <div class="orbit-item" style="--angle:0deg">
-                <div class="orbit-node">NLP</div>
-              </div>
-              <div class="orbit-item" style="--angle:60deg">
-                <div class="orbit-node">ML</div>
-              </div>
-              <div class="orbit-item" style="--angle:120deg">
-                <div class="orbit-node">RAG</div>
-              </div>
-              <div class="orbit-item" style="--angle:180deg">
-                <div class="orbit-node">OCR</div>
-              </div>
-              <div class="orbit-item" style="--angle:240deg">
-                <div class="orbit-node">KG</div>
-              </div>
-              <div class="orbit-item" style="--angle:300deg">
-                <div class="orbit-node">API</div>
-              </div>
-            </div>
-            <div class="tech-badges">
-              <div class="tech-badge">SOC 2</div>
-              <div class="tech-badge">ISO 27001</div>
-              <div class="tech-badge">GDPR</div>
-              <div class="tech-badge">HIPAA</div>
-            </div>
-          </div>
+      <div class="testimonial" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"Compliance is no longer reactive for us. Lexora AI monitors 47 regulatory frameworks in real-time. We caught a critical GDPR exposure 6 weeks before it became a problem."</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">AP</div>
+          <div><div class="author-name">Aisha Patel</div><div class="author-title">Chief Compliance Officer, EuroBank AG</div></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Industries Section -->
-  <section class="industries" id="industries">
-    <div class="section-container">
-      <div class="section-header">
-        <div class="section-tag">Industries</div>
-        <h2 class="section-title">Legal Intelligence <span class="gradient-text">For Every Sector</span></h2>
-        <p class="section-subtitle">Whether you're a Fortune 500 legal team or a boutique practice, Lexora AI scales to your needs.</p>
+<!-- ══════════════════════════════════════════════════════
+     CASE STUDIES
+══════════════════════════════════════════════════════ -->
+<section class="case-studies" id="case-studies">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-label">Case Studies</span>
+    <h2 class="section-title">How Leading Firms <span class="gradient-text">Use Lexora AI</span></h2>
+    <p class="section-subtitle">Deep dives into how our clients transformed their legal operations.</p>
+  </div>
+  <div class="case-grid">
+
+    <div class="case-card case-featured" data-aos="fade-up">
+      <div class="case-tag">M&A Due Diligence</div>
+      <h3 class="case-title">$2.3B Acquisition Reviewed in 72 Hours</h3>
+      <p class="case-desc">Apex Capital needed to review 47,000 documents across 12 data rooms for a landmark acquisition. Traditional review would have taken 8 lawyers 3 months. With Lexora AI, a team of 3 completed full due diligence in 72 hours — identifying 23 red flags that would have been missed.</p>
+      <div class="case-metrics">
+        <div class="case-metric"><span class="cm-value">72h</span><span class="cm-label">vs 3 months</span></div>
+        <div class="case-metric"><span class="cm-value">47K</span><span class="cm-label">docs reviewed</span></div>
+        <div class="case-metric"><span class="cm-value">23</span><span class="cm-label">red flags found</span></div>
       </div>
-      <div class="industries-grid">
-        <div class="industry-card">
-          <div class="industry-icon">⚖️</div>
-          <h3>Law Firms</h3>
-          <p>From BigLaw to boutiques — automate research, drafting, and due diligence to focus on strategy and client relationships.</p>
-          <div class="industry-stat">3x faster deal closing</div>
+      <div class="case-firm">Apex Capital · Investment Banking · New York</div>
+    </div>
+
+    <div class="case-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="case-tag">Contract Intelligence</div>
+      <h3 class="case-title">12,000 Contracts Reviewed in One Year</h3>
+      <p class="case-desc">NovaTech Global's legal team of 6 attorneys processed 12,000 vendor and customer contracts — a volume previously requiring a 25-person team. Contract review time dropped from 3 days to 45 minutes per document.</p>
+      <div class="case-metrics">
+        <div class="case-metric"><span class="cm-value">97%</span><span class="cm-label">time saved</span></div>
+        <div class="case-metric"><span class="cm-value">12K</span><span class="cm-label">contracts/year</span></div>
+      </div>
+      <div class="case-firm">NovaTech Global · Technology · San Francisco</div>
+    </div>
+
+    <div class="case-card" data-aos="fade-up" data-aos-delay="150">
+      <div class="case-tag">Regulatory Compliance</div>
+      <h3 class="case-title">GDPR Exposure Caught 6 Weeks Early</h3>
+      <p class="case-desc">EuroBank AG's compliance team used Lexora AI's real-time monitoring to detect a GDPR data-residency issue six weeks before it would have triggered regulatory investigation — saving an estimated €4.2M in potential fines.</p>
+      <div class="case-metrics">
+        <div class="case-metric"><span class="cm-value">€4.2M</span><span class="cm-label">fines avoided</span></div>
+        <div class="case-metric"><span class="cm-value">6wk</span><span class="cm-label">early warning</span></div>
+      </div>
+      <div class="case-firm">EuroBank AG · Financial Services · Frankfurt</div>
+    </div>
+
+    <div class="case-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="case-tag">Litigation Strategy</div>
+      <h3 class="case-title">34% Win Rate Improvement</h3>
+      <p class="case-desc">Rodriguez & Associates used Lexora AI's outcome prediction engine to analyze 50,000 similar cases before advising clients on settlement vs. trial decisions. Their win rate improved by 34% and average settlement value increased by 28%.</p>
+      <div class="case-metrics">
+        <div class="case-metric"><span class="cm-value">+34%</span><span class="cm-label">win rate</span></div>
+        <div class="case-metric"><span class="cm-value">+28%</span><span class="cm-label">settlement value</span></div>
+      </div>
+      <div class="case-firm">Rodriguez & Associates · Litigation · Miami</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     SECURITY
+══════════════════════════════════════════════════════ -->
+<section class="security" id="security">
+  <div class="security-inner">
+    <div data-aos="fade-right">
+      <span class="section-label">Security & Trust</span>
+      <h2 class="section-title" style="margin-top:.8rem">Your Data is <span class="gradient-text">Fortress-Grade</span> Protected</h2>
+      <p style="color:var(--text-muted);font-size:.95rem;line-height:1.8;margin:1rem 0 2rem">Legal data is among the most sensitive information in the world. Lexora AI was built with security as a foundational principle — your data never trains our models and never leaves your designated region.</p>
+      <div class="security-badges">
+        <div class="cert-badge"><div class="cert-icon">🛡️</div><div class="cert-name">SOC 2 Type II</div><div class="cert-status">✓ Certified</div></div>
+        <div class="cert-badge"><div class="cert-icon">🔒</div><div class="cert-name">ISO 27001</div><div class="cert-status">✓ Certified</div></div>
+        <div class="cert-badge"><div class="cert-icon">🇪🇺</div><div class="cert-name">GDPR</div><div class="cert-status">✓ Compliant</div></div>
+        <div class="cert-badge"><div class="cert-icon">🏥</div><div class="cert-name">HIPAA</div><div class="cert-status">✓ Compliant</div></div>
+        <div class="cert-badge"><div class="cert-icon">🏛️</div><div class="cert-name">FedRAMP</div><div class="cert-status">✓ Authorized</div></div>
+        <div class="cert-badge"><div class="cert-icon">⚡</div><div class="cert-name">CCPA/CPRA</div><div class="cert-status">✓ Compliant</div></div>
+      </div>
+    </div>
+    <div class="security-features" data-aos="fade-left">
+      <div class="sec-feature"><div class="sf-icon">🔐</div><div><div class="sf-title">End-to-End Encryption</div><div class="sf-desc">AES-256-GCM at rest, TLS 1.3 in transit. HSM-backed key management with 90-day automatic rotation.</div></div></div>
+      <div class="sec-feature"><div class="sf-icon">🚫</div><div><div class="sf-title">Your Data Never Trains Our Models</div><div class="sf-desc">Complete data isolation from training pipeline. Your documents are used exclusively to serve your requests.</div></div></div>
+      <div class="sec-feature"><div class="sf-icon">🌍</div><div><div class="sf-title">Global Data Residency</div><div class="sf-desc">Choose where your data lives: US, EU, UK, or APAC. Data never crosses regional boundaries.</div></div></div>
+      <div class="sec-feature"><div class="sf-icon">👥</div><div><div class="sf-title">Role-Based Access Control</div><div class="sf-desc">RBAC with MFA, SSO via SAML 2.0 and OIDC, IP allowlisting, and immutable audit logs for every action.</div></div></div>
+      <div class="sec-feature"><div class="sf-icon">📋</div><div><div class="sf-title">Attorney-Client Privilege Preserved</div><div class="sf-desc">Architectural isolation per matter, role-controlled access, full audit trails for privilege log support.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     TEAM
+══════════════════════════════════════════════════════ -->
+<section class="team-section" id="team">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-label">Leadership</span>
+    <h2 class="section-title">The Team <span class="gradient-text">Behind Lexora AI</span></h2>
+    <p class="section-subtitle">Legal scholars, AI researchers, and enterprise technologists — united by a mission to make law accessible and efficient for everyone.</p>
+  </div>
+  <div class="team-grid-full">
+
+    <div class="team-card" data-aos="fade-up">
+      <div class="team-avatar-lg">AK</div>
+      <div class="team-info">
+        <div class="team-name">Alexandra Kim</div>
+        <div class="team-role">Co-Founder & CEO</div>
+        <div class="team-bio">Former BigLaw partner at Clifford Chance (15 years). Harvard Law JD, MIT Computer Science. Built the vision for LexLLM™ after spending years watching AI transform finance but not law.</div>
+        <div class="team-tags"><span>Harvard Law</span><span>Ex-Clifford Chance</span><span>MIT CS</span></div>
+      </div>
+    </div>
+
+    <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="team-avatar-lg">DR</div>
+      <div class="team-info">
+        <div class="team-name">Dr. David Ramirez</div>
+        <div class="team-role">Co-Founder & CTO</div>
+        <div class="team-bio">Former Google Brain research scientist. Stanford PhD in NLP. Led development of LexLLM™ from conception to production. Holds 12 patents in large language model architectures.</div>
+        <div class="team-tags"><span>Google Brain</span><span>Stanford PhD</span><span>12 Patents</span></div>
+      </div>
+    </div>
+
+    <div class="team-card" data-aos="fade-up" data-aos-delay="150">
+      <div class="team-avatar-lg">LP</div>
+      <div class="team-info">
+        <div class="team-name">Laura Petrov</div>
+        <div class="team-role">Chief Legal Officer</div>
+        <div class="team-bio">Former Deputy General Counsel at Oracle. Georgetown Law JD. Designed Lexora AI's attorney-client privilege architecture and global compliance framework across 47 jurisdictions.</div>
+        <div class="team-tags"><span>Ex-Oracle GC</span><span>Georgetown Law</span></div>
+      </div>
+    </div>
+
+    <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="team-avatar-lg">JS</div>
+      <div class="team-info">
+        <div class="team-name">James Sullivan</div>
+        <div class="team-role">Chief Revenue Officer</div>
+        <div class="team-bio">Former VP Sales at LexisNexis and Thomson Reuters. 20+ years scaling legal technology from $0 to $200M ARR. Grew Lexora from 10 to 500+ enterprise clients in 3 years.</div>
+        <div class="team-tags"><span>Ex-LexisNexis</span><span>Ex-Thomson Reuters</span></div>
+      </div>
+    </div>
+
+    <div class="team-card" data-aos="fade-up" data-aos-delay="250">
+      <div class="team-avatar-lg">NW</div>
+      <div class="team-info">
+        <div class="team-name">Dr. Naomi Walsh</div>
+        <div class="team-role">VP of AI Research</div>
+        <div class="team-bio">Former OpenAI researcher. Oxford DPhil in Computational Law. Led the fine-tuning of LexLLM™ on jurisdiction-specific legal systems and built our real-time citator system.</div>
+        <div class="team-tags"><span>Ex-OpenAI</span><span>Oxford DPhil</span></div>
+      </div>
+    </div>
+
+    <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="team-avatar-lg">TO</div>
+      <div class="team-info">
+        <div class="team-name">Tunde Okonkwo</div>
+        <div class="team-role">VP of Engineering</div>
+        <div class="team-bio">Former Staff Engineer at Stripe and Amazon AWS. Built Lexora's multi-region infrastructure handling 99.99% uptime across US, EU, UK, and APAC data centers.</div>
+        <div class="team-tags"><span>Ex-Stripe</span><span>Ex-Amazon AWS</span></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="team-footer" data-aos="fade-up">
+    <div class="team-stats-row">
+      <div class="ts-item"><span class="ts-value">180+</span><span class="ts-label">Team Members</span></div>
+      <div class="ts-item"><span class="ts-value">42</span><span class="ts-label">Countries</span></div>
+      <div class="ts-item"><span class="ts-value">$120M</span><span class="ts-label">Series C Raised</span></div>
+      <div class="ts-item"><span class="ts-value">2021</span><span class="ts-label">Founded</span></div>
+    </div>
+    <div class="investors-row">
+      <span class="inv-label">Backed by</span>
+      <div class="investor-logos">
+        <span class="investor">Andreessen Horowitz</span>
+        <span class="investor">Sequoia Capital</span>
+        <span class="investor">Google Ventures</span>
+        <span class="investor">Bessemer VP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     BLOG / RESOURCES
+══════════════════════════════════════════════════════ -->
+<section class="blog-section" id="blog">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-label">Resources</span>
+    <h2 class="section-title">Legal AI <span class="gradient-text">Insights & News</span></h2>
+    <p class="section-subtitle">Thought leadership, product updates, and legal technology guides from the Lexora AI team.</p>
+  </div>
+  <div class="blog-grid">
+
+    <div class="blog-card blog-featured" data-aos="fade-up">
+      <div class="blog-tag">Research Report</div>
+      <h3 class="blog-title">The State of Legal AI 2026: How 500+ Firms Are Transforming Practice</h3>
+      <p class="blog-excerpt">Our annual survey of 500+ law firms and legal teams reveals how AI adoption has accelerated — and which capabilities deliver the highest ROI. Contract review leads adoption at 78%, followed by legal research (65%) and compliance monitoring (54%).</p>
+      <div class="blog-meta">
+        <div class="blog-author"><div class="blog-avatar">AK</div><span>Alexandra Kim, CEO</span></div>
+        <span class="blog-date">May 12, 2026</span>
+      </div>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="blog-tag">Product Update</div>
+      <h3 class="blog-title">LexLLM™ v2 Ships: 40% Accuracy Improvement Across All Modules</h3>
+      <p class="blog-excerpt">LexLLM™ v2 delivers a major leap in accuracy, speed, and jurisdictional coverage. Contract risk detection now achieves 94% accuracy, up from 67% in v1. We've also expanded to cover all 27 EU member states natively.</p>
+      <div class="blog-meta">
+        <div class="blog-author"><div class="blog-avatar">DR</div><span>Dr. David Ramirez, CTO</span></div>
+        <span class="blog-date">Apr 28, 2026</span>
+      </div>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="150">
+      <div class="blog-tag">Guide</div>
+      <h3 class="blog-title">Attorney-Client Privilege in the Age of AI: What Every GC Needs to Know</h3>
+      <p class="blog-excerpt">Using AI tools to process privileged legal communications raises complex questions. This guide explains how Lexora AI's architecture preserves privilege through isolation, RBAC, and comprehensive audit trails.</p>
+      <div class="blog-meta">
+        <div class="blog-author"><div class="blog-avatar">LP</div><span>Laura Petrov, CLO</span></div>
+        <span class="blog-date">Apr 15, 2026</span>
+      </div>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="blog-tag">Case Study</div>
+      <h3 class="blog-title">How a 6-Person Legal Team Now Processes 12,000 Contracts Per Year</h3>
+      <p class="blog-excerpt">NovaTech Global's in-house legal team went from 25 attorneys to 6 in two years — while processing more contracts than ever. General Counsel Sarah Chen shares the full story of their AI transformation journey.</p>
+      <div class="blog-meta">
+        <div class="blog-author"><div class="blog-avatar">SC</div><span>Guest: Sarah Chen, GC</span></div>
+        <span class="blog-date">Mar 30, 2026</span>
+      </div>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="250">
+      <div class="blog-tag">Regulatory</div>
+      <h3 class="blog-title">EU AI Act: What Legal Professionals Must Know Before August 2026</h3>
+      <p class="blog-excerpt">The EU AI Act's high-risk AI provisions directly affect legal tech tools used in legal proceedings. Here's our complete breakdown of compliance obligations and how Lexora AI is already compliant.</p>
+      <div class="blog-meta">
+        <div class="blog-author"><div class="blog-avatar">NW</div><span>Dr. Naomi Walsh, VP AI</span></div>
+        <span class="blog-date">Mar 18, 2026</span>
+      </div>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="blog-tag">Webinar</div>
+      <h3 class="blog-title">Live Demo: M&A Due Diligence from Data Room to Risk Report in 20 Minutes</h3>
+      <p class="blog-excerpt">Watch our CTO demonstrate a complete M&A due diligence workflow — from uploading 500 documents to a fully structured risk matrix and red-flag report, all in under 20 minutes. Recording now available.</p>
+      <div class="blog-meta">
+        <div class="blog-author"><div class="blog-avatar">DR</div><span>Dr. David Ramirez, CTO</span></div>
+        <span class="blog-date">Mar 5, 2026</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div data-aos="fade-right">
+      <span class="section-label">About Lexora AI</span>
+      <h2 class="section-title" style="margin-top:.8rem">We're Rewriting<br/><span class="gradient-text">Legal History</span></h2>
+      <div class="about-stats">
+        <div class="about-stat"><div class="as-value">2021</div><div class="as-label">Founded</div></div>
+        <div class="about-stat"><div class="as-value">180+</div><div class="as-label">Team Members</div></div>
+        <div class="about-stat"><div class="as-value">$120M</div><div class="as-label">Series C</div></div>
+        <div class="about-stat"><div class="as-value">42</div><div class="as-label">Countries</div></div>
+      </div>
+    </div>
+    <div class="about-content" data-aos="fade-left">
+      <p>Founded in 2021 by a team of legal scholars, AI researchers, and enterprise technologists, Lexora AI was born from a single conviction: the law should be accessible, efficient, and just for everyone — not just those who can afford premium legal services.</p>
+      <p>Today, we power legal operations for 500+ organizations across 47 jurisdictions, processing millions of documents annually and continuously improving through the world's largest proprietary legal training dataset.</p>
+      <p>We hold ourselves to three core values:</p>
+      <div class="about-team">
+        <div class="team-member"><div class="member-avatar">⚡</div><div class="member-name">Accuracy First</div><div class="member-title">99%+ accuracy with human-in-the-loop validation</div></div>
+        <div class="team-member"><div class="member-avatar">🔍</div><div class="member-name">Transparency</div><div class="member-title">Every AI decision is explainable with sources</div></div>
+        <div class="team-member"><div class="member-avatar">⚖️</div><div class="member-name">Access to Justice</div><div class="member-title">Free tier for legal aid organizations worldwide</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     CTA SECTION
+══════════════════════════════════════════════════════ -->
+<section class="cta-section" id="cta">
+  <div class="cta-inner">
+    <div data-aos="zoom-in">
+      <span class="section-label">Get Started</span>
+      <h2 class="section-title" style="margin-top:.8rem">Ready to Transform<br/><span class="gradient-text">Your Legal Practice?</span></h2>
+      <p class="section-subtitle" style="margin-bottom:2rem">Join 500+ organizations already using Lexora AI. Get started with a personalized demo — no commitment, no credit card required.</p>
+    </div>
+    <div class="cta-actions" data-aos="fade-up" data-aos-delay="100">
+      <a href="#contact" class="btn-primary btn-lg">Start 14-Day Free Trial</a>
+      <a href="#contact" class="btn-outline btn-lg">Schedule a Demo</a>
+    </div>
+    <div class="direct-contact" data-aos="fade-up" data-aos-delay="200">
+      <a href="tel:+17272601783" class="direct-contact-item dc-phone">
+        <div class="dc-icon">📞</div>
+        <div class="dc-label">Call Us Now</div>
+        <div class="dc-value">(727) 260-1783</div>
+      </a>
+      <a href="mailto:support@lexoraai.org" class="direct-contact-item dc-email">
+        <div class="dc-icon">✉️</div>
+        <div class="dc-label">Email Us</div>
+        <div class="dc-value">support@lexoraai.org</div>
+      </a>
+      <a href="https://wa.me/17272601783" class="direct-contact-item dc-whatsapp" target="_blank" rel="noopener">
+        <div class="dc-icon">💬</div>
+        <div class="dc-label">WhatsApp</div>
+        <div class="dc-value">Chat Instantly</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     CONTACT FORM
+══════════════════════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-label">Contact</span>
+    <h2 class="section-title">Book Your <span class="gradient-text">Free Demo</span></h2>
+    <p class="section-subtitle">Talk to our team within 24 hours. We'll show you exactly what Lexora AI can do for your firm.</p>
+  </div>
+  <div class="contact-inner" data-aos="fade-up" data-aos-delay="100">
+    <div class="contact-form" id="contactFormWrapper">
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" placeholder="Sarah" required />
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" placeholder="Chen" required />
+          </div>
         </div>
-        <div class="industry-card">
-          <div class="industry-icon">🏢</div>
-          <h3>Corporate Legal</h3>
-          <p>In-house teams manage more work with less headcount — contracts, compliance, and governance all in one platform.</p>
-          <div class="industry-stat">60% cost reduction</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Work Email *</label>
+            <input type="email" placeholder="sarah@yourfirm.com" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+1 (555) 000-0000" />
+          </div>
         </div>
-        <div class="industry-card">
-          <div class="industry-icon">🏦</div>
-          <h3>Financial Services</h3>
-          <p>Navigate complex regulatory environments — MiFID II, Dodd-Frank, Basel III — with real-time compliance monitoring.</p>
-          <div class="industry-stat">Zero compliance gaps</div>
+        <div class="form-group">
+          <label>Organization *</label>
+          <input type="text" placeholder="Your Law Firm or Company" required />
         </div>
-        <div class="industry-card">
-          <div class="industry-icon">🏥</div>
-          <h3>Healthcare</h3>
-          <p>HIPAA compliance, patient data governance, and pharmaceutical contract management — all automated and auditable.</p>
-          <div class="industry-stat">100% audit readiness</div>
+        <div class="form-group">
+          <label>I'm interested in</label>
+          <select>
+            <option>Contract Intelligence</option>
+            <option>Litigation Intelligence</option>
+            <option>Regulatory Compliance</option>
+            <option>Legal Research Engine</option>
+            <option>IP & Patent Intelligence</option>
+            <option>M&A Due Diligence</option>
+            <option>Full Platform</option>
+          </select>
         </div>
-        <div class="industry-card">
-          <div class="industry-icon">🌐</div>
-          <h3>Technology &amp; IP</h3>
-          <p>Protect innovations with AI-powered patent intelligence, licensing management, and open-source compliance.</p>
-          <div class="industry-stat">94% IP conflict detection</div>
+        <div class="contact-method-group">
+          <label>Preferred contact method</label>
+          <div class="radio-options">
+            <label class="radio-option"><input type="radio" name="contact" value="email" checked /> ✉️ Email</label>
+            <label class="radio-option"><input type="radio" name="contact" value="phone" /> 📞 Phone</label>
+            <label class="radio-option"><input type="radio" name="contact" value="whatsapp" /> 💬 WhatsApp</label>
+          </div>
         </div>
-        <div class="industry-card">
-          <div class="industry-icon">🏛️</div>
-          <h3>Government &amp; Public Sector</h3>
-          <p>Procurement automation, policy drafting, and constitutional compliance analysis for government bodies worldwide.</p>
-          <div class="industry-stat">Used in 12 countries</div>
+        <div class="form-submit">
+          <button type="submit" class="btn-primary btn-lg">Request My Demo →</button>
+          <div class="form-note">We respond within 24 hours. No spam, ever.</div>
+        </div>
+      </form>
+      <div class="success-message" id="successMsg">
+        <div class="success-icon">🎉</div>
+        <div class="success-title">Demo Request Received!</div>
+        <div class="success-text">Our team will reach out within 24 hours to schedule your personalized demo.</div>
+        <div class="success-actions">
+          <a href="https://wa.me/17272601783" class="btn-whatsapp-small" target="_blank" rel="noopener">💬 Chat on WhatsApp Now</a>
+          <a href="tel:+17272601783" class="btn-outline">📞 Call Us Instead</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Results / Testimonials -->
-  <section class="results" id="results">
-    <div class="section-container">
-      <div class="section-header">
-        <div class="section-tag">Results</div>
-        <h2 class="section-title">Real Firms. <span class="gradient-text">Real Results.</span></h2>
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg class="footer-logo-img" viewBox="0 0 40 40" fill="none">
+          <path d="M20 3L37 12V28L20 37L3 28V12L20 3Z" fill="url(#footGrad)"/>
+          <path d="M13 16H27M13 20H22M13 24H25" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="footGrad" x1="3" y1="3" x2="37" y2="37" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#F0D070"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="footer-logo-name">Lexora AI</span>
       </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card featured-testimonial">
-          <div class="quote-mark">"</div>
-          <p class="testimonial-text">Lexora AI reduced our contract review time from 3 days to 45 minutes. We've processed over 12,000 contracts in the past year alone. It's not just a tool — [...]
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #6C63FF, #3ECFCF)">SC</div>
-            <div>
-              <strong>Sarah Chen</strong>
-              <span>General Counsel, NovaTech Global</span>
-            </div>
-          </div>
-          <div class="testimonial-metric">
-            <span class="metric-num">97%</span>
-            <span class="metric-label">time reduction on contract review</span>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="quote-mark">"</div>
-          <p class="testimonial-text">The litigation prediction engine has fundamentally changed how we advise clients on settlement decisions. Our win rate improved by 34% in the first year.</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #FF6584, #FF9A5C)">MR</div>
-            <div>
-              <strong>Michael Rodriguez</strong>
-              <span>Partner, Rodriguez &amp; Associates</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="quote-mark">"</div>
-          <p class="testimonial-text">Compliance is no longer a reactive function for us. Lexora AI monitors 47 regulatory frameworks in real-time. We caught a critical GDPR exposure 6 weeks befo[...]
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #11998E, #38EF7D)">AP</div>
-            <div>
-              <strong>Aisha Patel</strong>
-              <span>Chief Compliance Officer, EuroBank AG</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="quote-mark">"</div>
-          <p class="testimonial-text">We ran M&amp;A due diligence on a $2.3B acquisition. Lexora reviewed 47,000 documents in 72 hours. What used to take 8 lawyers 3 months took a team of 3 les[...]
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #4776E6, #8E54E9)">JT</div>
-            <div>
-              <strong>James Thornton</strong>
-              <span>Managing Director, Apex Capital</span>
-            </div>
-          </div>
-        </div>
+      <p class="footer-desc">Legal intelligence for the modern world. Empowering lawyers, enterprises, and governments with AI that truly understands the law.</p>
+      <div class="footer-contact-info">
+        <a href="tel:+17272601783" class="footer-contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.22 2.84 2 2 0 012.22.66h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.09a16 16 0 006.09 6.09l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (727) 260-1783
+        </a>
+        <a href="mailto:support@lexoraai.org" class="footer-contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          support@lexoraai.org
+        </a>
+        <a href="https://wa.me/17272601783" class="footer-contact-link wa" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Chat
+        </a>
       </div>
     </div>
-  </section>
-
-  <!-- Trust / Security Section -->
-  <section class="security">
-    <div class="section-container">
-      <div class="security-layout">
-        <div class="security-content">
-          <div class="section-tag">Security &amp; Trust</div>
-          <h2 class="section-title">Your Data is <span class="gradient-text">Fortress-Grade</span> Protected</h2>
-          <p>Legal data is among the most sensitive information in the world. Lexora AI was built with a security-first architecture — your data never trains our models, never leaves your desig[...]
-          <div class="security-list">
-            <div class="security-item">
-              <div class="security-check">✓</div>
-              <span>End-to-end AES-256 encryption</span>
-            </div>
-            <div class="security-item">
-              <div class="security-check">✓</div>
-              <span>Your data never trains our models</span>
-            </div>
-            <div class="security-item">
-              <div class="security-check">✓</div>
-              <span>Data residency in US, EU, UK, APAC</span>
-            </div>
-            <div class="security-item">
-              <div class="security-check">✓</div>
-              <span>Role-based access control (RBAC)</span>
-            </div>
-            <div class="security-item">
-              <div class="security-check">✓</div>
-              <span>Attorney-client privilege preserved</span>
-            </div>
-            <div class="security-item">
-              <div class="security-check">✓</div>
-              <span>99.99% uptime SLA with failover</span>
-            </div>
-          </div>
-        </div>
-        <div class="security-badges-grid">
-          <div class="cert-badge">
-            <div class="cert-icon">🛡️</div>
-            <strong>SOC 2 Type II</strong>
-            <span>Certified</span>
-          </div>
-          <div class="cert-badge">
-            <div class="cert-icon">🔒</div>
-            <strong>ISO 27001</strong>
-            <span>Certified</span>
-          </div>
-          <div class="cert-badge">
-            <div class="cert-icon">🇪🇺</div>
-            <strong>GDPR</strong>
-            <span>Compliant</span>
-          </div>
-          <div class="cert-badge">
-            <div class="cert-icon">🏥</div>
-            <strong>HIPAA</strong>
-            <span>Compliant</span>
-          </div>
-          <div class="cert-badge">
-            <div class="cert-icon">⚡</div>
-            <strong>CCPA</strong>
-            <span>Compliant</span>
-          </div>
-          <div class="cert-badge">
-            <div class="cert-icon">🔐</div>
-            <strong>FedRAMP</strong>
-            <span>Authorized</span>
-          </div>
-        </div>
-      </div>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <ul>
+        <li><a href="#solutions">Contract Intelligence</a></li>
+        <li><a href="#solutions">Litigation Intelligence</a></li>
+        <li><a href="#solutions">Regulatory Compliance</a></li>
+        <li><a href="#solutions">Legal Research</a></li>
+        <li><a href="#solutions">IP & Patent</a></li>
+        <li><a href="#solutions">M&A Due Diligence</a></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- About -->
-  <section class="about" id="about">
-    <div class="section-container">
-      <div class="about-layout">
-        <div class="about-content">
-          <div class="section-tag">About Lexora AI</div>
-          <h2 class="section-title">We're Rewriting<br/><span class="gradient-text">Legal History</span></h2>
-          <p>Founded in 2021 by a team of legal scholars, AI researchers, and enterprise technologists, Lexora AI was born from a single conviction: the law should be accessible, efficient, and j[...]
-          <p>Today, we power legal operations for 500+ organizations across 47 countries, processing millions of documents annually and continuously improving through the world's largest propriet[...]
-          <div class="about-values">
-            <div class="value-item">
-              <strong>Accuracy First</strong>
-              <span>Legal errors have consequences. We hold ourselves to 99%+ accuracy with human-in-the-loop validation.</span>
-            </div>
-            <div class="value-item">
-              <strong>Radical Transparency</strong>
-              <span>Every AI decision is explainable. We show our reasoning, sources, and confidence levels — always.</span>
-            </div>
-            <div class="value-item">
-              <strong>Access to Justice</strong>
-              <span>We partner with legal aid organizations worldwide to make AI legal tools available to underserved communities.</span>
-            </div>
-          </div>
-        </div>
-        <div class="about-visual">
-          <div class="team-grid">
-            <div class="team-stat">
-              <span class="ts-num">180+</span>
-              <span class="ts-label">Team Members</span>
-            </div>
-            <div class="team-stat">
-              <span class="ts-num">42</span>
-              <span class="ts-label">Countries</span>
-            </div>
-            <div class="team-stat">
-              <span class="ts-num">$120M</span>
-              <span class="ts-label">Series C Raised</span>
-            </div>
-            <div class="team-stat">
-              <span class="ts-num">2021</span>
-              <span class="ts-label">Founded</span>
-            </div>
-          </div>
-          <div class="investors-block">
-            <span class="inv-label">Backed by</span>
-            <div class="investor-logos">
-              <span>Andreessen Horowitz</span>
-              <span>Sequoia Capital</span>
-              <span>Google Ventures</span>
-              <span>Bessemer</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">Leadership Team</a></li>
+        <li><a href="#blog">Blog & Resources</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- CTA / Contact Section -->
-  <section class="cta-section" id="contact">
-    <div class="cta-bg">
-      <div class="cta-orb cta-orb-1"></div>
-      <div class="cta-orb cta-orb-2"></div>
-      <div class="grid-overlay"></div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">DPA</a></li>
+        <li><a href="#">Sub-processors</a></li>
+      </ul>
     </div>
-    <div class="section-container">
-      <div class="cta-layout">
-        <div class="cta-content">
-          <h2 class="cta-title">Ready to Transform<br/><span class="gradient-text">Your Legal Practice?</span></h2>
-          <p class="cta-subtitle">Join 500+ organizations already using Lexora AI. Get started with a personalized demo today — no commitment required.</p>
-          <div class="cta-points">
-            <div class="cta-point">✓ 14-day free trial with full access</div>
-            <div class="cta-point">✓ Dedicated onboarding specialist</div>
-            <div class="cta-point">✓ No credit card required</div>
-            <div class="cta-point">✓ Enterprise pricing available</div>
-          </div>
-        </div>
-        <div class="contact-form-card">
-          <h3>Book Your Demo</h3>
-          <form class="contact-form" id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label>First Name</label>
-                <input type="text" placeholder="Sarah" required />
-              </div>
-              <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" placeholder="Chen" required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Work Email</label>
-              <input type="email" placeholder="sarah@yourfirm.com" required />
-            </div>
-            <div class="form-group">
-              <label>Organization</label>
-              <input type="text" placeholder="Your Law Firm or Company" required />
-            </div>
-            <div class="form-group">
-              <label>I'm interested in</label>
-              <select>
-                <option>Contract Intelligence</option>
-                <option>Litigation Intelligence</option>
-                <option>Regulatory Compliance</option>
-                <option>Legal Research</option>
-                <option>M&amp;A Due Diligence</option>
-                <option>Full Platform</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-form-submit">
-              <span>Request My Demo</span>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <p class="form-note">By submitting, you agree to our Privacy Policy. We'll contact you within 24 hours.</p>
-          </form>
-          <div class="form-success" id="formSuccess">
-            <div class="success-icon">✓</div>
-            <h4>You're on the list!</h4>
-            <p>Our team will reach out within 24 hours to schedule your personalized demo.</p>
-          </div>
-        </div>
-      </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Lexora AI, Inc. All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Security</a>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="#" class="logo">
-            <div class="logo-icon">
-              <svg viewBox="0 0 40 40" fill="none"><path d="M20 4L36 12V28L20 36L4 28V12L20 4Z" fill="url(#footerLogoGrad)"/><path d="M14 16H26M14 20H22M14 24H24" stroke="white" stroke-width="2" [...]
-            </div>
-            <span class="logo-text">Lexora <span class="logo-ai">AI</span></span>
-          </a>
-          <p>Legal intelligence for the modern world. Empowering lawyers, enterprises, and governments with AI that understands the law.</p>
-          <div class="social-links">
-            <a href="#" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="#" aria-label="Twitter">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 [...]
-            </a>
-            <a href="#" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1[...]
-            </a>
-          </div>
-        </div>
-        <div class="footer-links">
-          <div class="footer-col">
-            <h4>Solutions</h4>
-            <ul>
-              <li><a href="#">Contract Intelligence</a></li>
-              <li><a href="#">Litigation Intelligence</a></li>
-              <li><a href="#">Regulatory Compliance</a></li>
-              <li><a href="#">Legal Research</a></li>
-              <li><a href="#">IP &amp; Patent</a></li>
-              <li><a href="#">M&amp;A Due Diligence</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Press &amp; Media</a></li>
-              <li><a href="#">Partners</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Resources</h4>
-            <ul>
-              <li><a href="#">Documentation</a></li>
-              <li><a href="#">API Reference</a></li>
-              <li><a href="#">Case Studies</a></li>
-              <li><a href="#">Webinars</a></li>
-              <li><a href="#">Legal Tech Blog</a></li>
-              <li><a href="#">Status Page</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Legal</h4>
-            <ul>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-              <li><a href="#">Cookie Policy</a></li>
-              <li><a href="#">Security</a></li>
-              <li><a href="#">Compliance</a></li>
-              <li><a href="#">DPA</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Lexora AI, Inc. All rights reserved.</span>
-        <div class="footer-certifications">
-          <span class="footer-cert">SOC 2</span>
-          <span class="footer-cert">ISO 27001</span>
-          <span class="footer-cert">GDPR</span>
-          <span class="footer-cert">HIPAA</span>
-        </div>
-      </div>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Twitter">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+      </a>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script src="js/main.js"></script>
+<!-- WhatsApp Float -->
+<a href="https://wa.me/17272601783" class="whatsapp-float" id="waFloat" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="whatsapp-tooltip">Chat with us!</span>
+</a>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/main.js"></script>
+
 </body>
 </html>
