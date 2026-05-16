@@ -19,7 +19,7 @@
 // ---------------------------------------------------------------------------
 
 export const SUPABASE_URL     = 'https://rziahcelwdirrjiadahc.supabase.co';
-export const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+export const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6aWFoY2Vsd2RpcnJqaWFkYWhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5MTQ5NzcsImV4cCI6MjA5NDQ5MDk3N30.Oucil5vU27GO9ZGWad02RmdpRXXtkVWDo7mgw9J74Ao';
 
 // ---------------------------------------------------------------------------
 // Supabase client (uses the UMD global exposed by the CDN bundle)
