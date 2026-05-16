@@ -223,21 +223,6 @@ document.querySelectorAll('.solution-card,.result-card,.hero-card').forEach(card
   loop();
 })();
 
-/* ── Contact form ───────────────────────────────────────── */
-const contactForm = document.getElementById('contactForm');
-const successMsg  = document.querySelector('.success-message');
-
-contactForm && contactForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const btn = contactForm.querySelector('button[type="submit"]');
-  if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
-
-  setTimeout(() => {
-    contactForm.style.display = 'none';
-    if (successMsg) successMsg.classList.add('show');
-  }, 1200);
-});
-
 /* ── Smooth scroll for nav links ────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {

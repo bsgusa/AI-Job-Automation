@@ -293,10 +293,11 @@
   </main>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script type="module">
 import { requireAuth, signOut, getUser } from './js/auth.js';
 import { getCasesByUser, getFormSubmissions, createCase } from './js/forms.js';
+import { supabase } from './js/config.js';
 
 // Auth guard
 const session = await requireAuth();
@@ -402,7 +403,7 @@ document.getElementById('profileForm').addEventListener('submit', async (e) => {
   const btn = document.getElementById('saveProfileBtn');
   btn.textContent = 'Saving…'; btn.disabled = true;
   const fd = new FormData(e.target);
-  const { error } = await window._supabase.from('profiles').upsert({ id: user.id, ...Object.fromEntries(fd.entries()), updated_at: new Date().toISOString() });
+  const { error } = await supabase.from('profiles').upsert({ id: user.id, ...Object.fromEntries(fd.entries()), updated_at: new Date().toISOString() });
   btn.textContent = 'Save Changes'; btn.disabled = false;
   const alert = document.getElementById('profileAlert');
   if (error) {
