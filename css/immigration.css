@@ -1,0 +1,184 @@
+/* ============================================================
+   LEXORA AI — Immigration Page Styles
+   ============================================================ */
+
+.imm-hero{
+  position:relative;padding:9rem 2rem 5rem;
+  background:var(--bg);overflow:hidden;
+}
+.imm-hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;text-align:center}
+.imm-hero-inner .hero-actions{justify-content:center}
+.imm-hero-inner .hero-trust{justify-content:center}
+.imm-hero-inner .hero-subtitle{margin:0 auto 2.5rem;max-width:680px}
+
+/* USCIS Forms Grid */
+.imm-forms-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;
+}
+.imm-form-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:1.8rem;
+  transition:all var(--transition);cursor:pointer;
+  display:flex;flex-direction:column;gap:.6rem;
+}
+.imm-form-card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:var(--shadow-card),var(--glow)}
+.imm-form-number{
+  font-size:1.5rem;font-weight:800;
+  background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.imm-form-title{font-size:.95rem;font-weight:700;line-height:1.4}
+.imm-form-desc{font-size:.82rem;color:var(--text-muted);line-height:1.6;flex:1}
+.imm-form-time,.imm-form-fee{font-size:.78rem;color:var(--text-muted)}
+.imm-form-cta{
+  display:inline-flex;align-items:center;
+  font-size:.82rem;font-weight:700;color:var(--primary);
+  margin-top:.3rem;transition:gap var(--transition);
+}
+.imm-form-cta:hover{gap:.3rem}
+
+/* Status Checker */
+.status-checker{max-width:600px;margin:0 auto}
+.status-form{}
+.status-input-row{display:flex;gap:.8rem}
+.status-input-row input{
+  flex:1;padding:.85rem 1rem;
+  background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;
+  color:var(--text);font-family:'Fira Code',monospace;font-size:1rem;letter-spacing:.05em;
+  outline:none;transition:all var(--transition);
+}
+.status-input-row input:focus{border-color:var(--primary);background:rgba(201,168,76,.05);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.status-result{
+  margin-top:1.5rem;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:1.5rem;
+}
+.status-result-inner{display:flex;align-items:center;gap:1.2rem;margin-bottom:1rem}
+.status-result-icon{font-size:2rem}
+.status-result-label{font-size:.75rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
+.status-result-value{font-size:1.1rem;font-weight:700;color:var(--primary)}
+.status-result-desc{font-size:.85rem;color:var(--text-muted);margin-top:.3rem}
+.status-result-note{font-size:.78rem;color:var(--text-muted);padding-top:1rem;border-top:1px solid var(--border)}
+
+/* Intake Form */
+.intake-wrap{max-width:780px;margin:0 auto}
+.intake-progress{margin-bottom:2.5rem}
+.progress-steps{display:flex;align-items:center;justify-content:center;gap:0}
+.prog-step{
+  display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  min-width:80px;
+}
+.prog-num{
+  width:34px;height:34px;border-radius:50%;
+  border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;font-weight:700;color:var(--text-muted);
+  transition:all var(--transition);background:var(--bg);
+}
+.prog-label{font-size:.72rem;color:var(--text-muted);font-weight:600;transition:color var(--transition)}
+.prog-step.active .prog-num{border-color:var(--primary);background:rgba(201,168,76,.1);color:var(--primary)}
+.prog-step.active .prog-label{color:var(--primary)}
+.prog-line{flex:1;height:2px;background:var(--border);min-width:40px;margin-bottom:18px}
+.intake-form{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:2.5rem;
+}
+.intake-step{display:none}
+.intake-step.active{display:block}
+.intake-step-title{font-size:1.2rem;font-weight:700;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.intake-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.intake-form .form-group{margin-bottom:1.2rem}
+.intake-form label{display:block;font-size:.82rem;font-weight:600;color:var(--text-muted);margin-bottom:.4rem}
+.intake-form input,.intake-form select,.intake-form textarea{
+  width:100%;padding:.8rem 1rem;
+  background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;
+  color:var(--text);font-family:inherit;font-size:.88rem;
+  outline:none;transition:all var(--transition);
+}
+.intake-form input:focus,.intake-form select:focus,.intake-form textarea:focus{border-color:var(--primary);background:rgba(201,168,76,.05);box-shadow:0 0 0 3px rgba(201,168,76,.1)}
+.intake-form select option{background:var(--bg-2)}
+.intake-form textarea{min-height:120px;resize:vertical}
+.intake-nav{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+
+/* Docs checklist */
+.docs-checklist{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem}
+.doc-check{
+  display:flex;align-items:flex-start;gap:.6rem;
+  font-size:.85rem;color:var(--text-muted);cursor:pointer;
+  padding:.5rem .7rem;border-radius:8px;border:1px solid var(--border);
+  transition:all var(--transition);
+}
+.doc-check:hover{border-color:var(--border-h);color:var(--text)}
+.doc-check input{accent-color:var(--primary);margin-top:2px;flex-shrink:0}
+.doc-check:has(input:checked){border-color:var(--primary);background:rgba(201,168,76,.06);color:var(--text)}
+
+/* Review */
+.review-summary{
+  background:rgba(255,255,255,.03);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;
+}
+.review-grid{display:flex;flex-direction:column;gap:.7rem}
+.review-row{display:flex;gap:1rem;font-size:.88rem}
+.rv-label{min-width:160px;font-weight:600;color:var(--text-muted);flex-shrink:0}
+.rv-value{color:var(--text)}
+.intake-consent{
+  padding:1rem;background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.15);
+  border-radius:8px;margin-bottom:1.5rem;
+}
+.intake-consent .doc-check{border:none;padding:0;background:none}
+
+/* Success */
+.intake-success{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:3rem;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:1.2rem;
+}
+.intake-success .success-icon{font-size:3.5rem}
+.intake-success h2{font-size:1.6rem;font-weight:800}
+.intake-success p{color:var(--text-muted);font-size:.95rem}
+.intake-success strong{color:var(--primary)}
+.intake-next-steps{
+  background:rgba(255,255,255,.03);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.5rem;text-align:left;max-width:480px;width:100%;
+}
+.intake-next-steps h4{font-size:.9rem;font-weight:700;margin-bottom:1rem}
+.intake-next-steps ol{padding-left:1.2rem}
+.intake-next-steps li{font-size:.85rem;color:var(--text-muted);margin-bottom:.5rem;line-height:1.5}
+.intake-success-actions{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+
+/* FAQ */
+.faq-grid{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:.8rem}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.1rem 1.4rem;
+  font-size:.9rem;font-weight:600;color:var(--text);
+  text-align:left;background:none;border:none;cursor:pointer;
+  transition:color var(--transition);
+}
+.faq-q:hover{color:var(--primary)}
+.faq-q span{font-size:1.2rem;color:var(--primary);flex-shrink:0;transition:transform var(--transition)}
+.faq-item.open .faq-q span{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  font-size:.87rem;color:var(--text-muted);line-height:1.7;
+  padding:0 1.4rem;
+  transition:max-height .35s ease,padding .35s ease;
+}
+.faq-item.open .faq-a{max-height:300px;padding:.2rem 1.4rem 1.2rem}
+
+/* Responsive */
+@media(max-width:768px){
+  .imm-forms-grid{grid-template-columns:1fr 1fr}
+  .intake-row{grid-template-columns:1fr}
+  .docs-checklist{grid-template-columns:1fr}
+  .status-input-row{flex-direction:column}
+  .review-row{flex-direction:column;gap:.2rem}
+}
+@media(max-width:480px){
+  .imm-forms-grid{grid-template-columns:1fr}
+  .intake-form{padding:1.5rem 1rem}
+  .progress-steps{gap:0}
+  .prog-step{min-width:60px}
+  .prog-label{font-size:.65rem}
+}

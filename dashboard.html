@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — Lexora AI</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/auth.css"/>
+</head>
+<body class="dash-body">
+
+<!-- Dashboard Navbar -->
+<nav class="dash-nav">
+  <a href="index.html" class="dash-brand">
+    <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+      <path d="M20 3L37 12V28L20 37L3 28V12L20 3Z" fill="url(#dg)"/>
+      <path d="M13 16H27M13 20H22M13 24H25" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <defs><linearGradient id="dg" x1="3" y1="3" x2="37" y2="37" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#F0D070"/>
+      </linearGradient></defs>
+    </svg>
+    Lexora AI
+  </a>
+  <div class="dash-nav-right">
+    <div class="dash-user">
+      <div class="dash-avatar" id="userAvatar">?</div>
+      <span id="userEmail" style="font-size:.82rem"></span>
+    </div>
+    <button class="dash-signout" id="signOutBtn">Sign Out</button>
+  </div>
+</nav>
+
+<div class="dash-layout">
+
+  <!-- Sidebar -->
+  <aside class="dash-sidebar">
+    <button class="dash-nav-item active" data-page="overview" onclick="showPage('overview',this)">
+      <span class="nav-icon">🏠</span> Overview
+    </button>
+    <button class="dash-nav-item" data-page="cases" onclick="showPage('cases',this)">
+      <span class="nav-icon">📋</span> My Cases
+    </button>
+    <button class="dash-nav-item" data-page="immigration" onclick="showPage('immigration',this)">
+      <span class="nav-icon">🗂️</span> Immigration Filing
+    </button>
+    <button class="dash-nav-item" data-page="documents" onclick="showPage('documents',this)">
+      <span class="nav-icon">📄</span> Documents
+    </button>
+    <button class="dash-nav-item" data-page="submissions" onclick="showPage('submissions',this)">
+      <span class="nav-icon">✉️</span> Submissions
+    </button>
+    <button class="dash-nav-item" data-page="profile" onclick="showPage('profile',this)">
+      <span class="nav-icon">👤</span> My Profile
+    </button>
+    <div style="flex:1"></div>
+    <a href="immigration.html" class="dash-nav-item" style="text-decoration:none">
+      <span class="nav-icon">➕</span> New Filing
+    </a>
+    <a href="index.html" class="dash-nav-item" style="text-decoration:none">
+      <span class="nav-icon">🌐</span> Main Site
+    </a>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="dash-main">
+    <div class="dash-content">
+
+      <!-- ── Overview ─────────────────────────────────────── -->
+      <div class="dash-page active" id="page-overview">
+        <div class="dash-page-title">Welcome back 👋</div>
+        <div class="dash-page-sub" id="welcomeText">Your legal dashboard at a glance.</div>
+
+        <div class="dash-cards">
+          <div class="dash-card">
+            <div class="dash-card-label">Active Cases</div>
+            <div class="dash-card-value" id="statCases">—</div>
+            <div class="dash-card-note">Immigration filings in progress</div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-label">Submissions</div>
+            <div class="dash-card-value" id="statSubs">—</div>
+            <div class="dash-card-note">Demo & intake requests</div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-label">Documents</div>
+            <div class="dash-card-value" id="statDocs">0</div>
+            <div class="dash-card-note">Uploaded to your account</div>
+          </div>
+        </div>
+
+        <!-- Recent Cases -->
+        <div class="dash-table-wrap">
+          <div class="dash-table-header">
+            <span class="dash-table-title">Recent Cases</span>
+            <button class="btn-primary" style="padding:.4rem .9rem;font-size:.78rem" onclick="showPage('immigration',document.querySelector('[data-page=immigration]'))">+ New Case</button>
+          </div>
+          <div id="recentCasesBody">
+            <div class="dash-empty"><div class="dash-empty-icon">📂</div>No cases yet. <a href="immigration.html" style="color:var(--primary)">Start your first immigration filing →</a></div>
+          </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem">
+          <a href="immigration.html" style="text-decoration:none">
+            <div class="dash-card" style="cursor:pointer;text-align:center;padding:1.5rem">
+              <div style="font-size:2rem;margin-bottom:.5rem">🗂️</div>
+              <div style="font-size:.85rem;font-weight:700">Start Immigration Filing</div>
+              <div style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem">I-130, I-485, N-400 and more</div>
+            </div>
+          </a>
+          <a href="tel:+17272601783" style="text-decoration:none">
+            <div class="dash-card" style="cursor:pointer;text-align:center;padding:1.5rem">
+              <div style="font-size:2rem;margin-bottom:.5rem">📞</div>
+              <div style="font-size:.85rem;font-weight:700">Call Our Attorneys</div>
+              <div style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem">(727) 260-1783</div>
+            </div>
+          </a>
+          <a href="https://wa.me/17272601783" target="_blank" rel="noopener" style="text-decoration:none">
+            <div class="dash-card" style="cursor:pointer;text-align:center;padding:1.5rem">
+              <div style="font-size:2rem;margin-bottom:.5rem">💬</div>
+              <div style="font-size:.85rem;font-weight:700">WhatsApp Support</div>
+              <div style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem">Chat with us instantly</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ── My Cases ─────────────────────────────────────── -->
+      <div class="dash-page" id="page-cases">
+        <div class="dash-page-title">My Cases</div>
+        <div class="dash-page-sub">All your immigration and legal cases in one place.</div>
+        <div id="casesAlert" class="dash-alert"></div>
+        <div class="dash-table-wrap">
+          <div class="dash-table-header">
+            <span class="dash-table-title">All Cases</span>
+            <a href="immigration.html" class="btn-primary" style="padding:.4rem .9rem;font-size:.78rem;text-decoration:none">+ New Case</a>
+          </div>
+          <div id="casesTableBody">
+            <div class="dash-empty"><div class="dash-empty-icon">📂</div>No cases yet. <a href="immigration.html" style="color:var(--primary)">File your first case →</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Immigration Filing ────────────────────────────── -->
+      <div class="dash-page" id="page-immigration">
+        <div class="dash-page-title">Immigration Filing</div>
+        <div class="dash-page-sub">Start a new case or track an existing USCIS filing.</div>
+        <div id="caseFormAlert" class="dash-alert"></div>
+        <div class="dash-form">
+          <div class="dash-form-title">Log a New Immigration Case</div>
+          <form id="caseForm">
+            <div class="dash-form-row">
+              <div class="form-group">
+                <label>USCIS Form Type *</label>
+                <select name="form_type" required>
+                  <option value="">Select a form</option>
+                  <option value="I-130">I-130 — Family Petition</option>
+                  <option value="I-485">I-485 — Green Card (AOS)</option>
+                  <option value="I-765">I-765 — Work Permit (EAD)</option>
+                  <option value="I-131">I-131 — Travel Document</option>
+                  <option value="N-400">N-400 — Naturalization</option>
+                  <option value="I-90">I-90 — Renew Green Card</option>
+                  <option value="I-539">I-539 — Change/Extend Status</option>
+                  <option value="I-140">I-140 — Worker Petition</option>
+                  <option value="I-864">I-864 — Affidavit of Support</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Case Status</label>
+                <select name="status">
+                  <option value="draft">Draft — Not yet filed</option>
+                  <option value="pending">Pending — Filed, awaiting receipt</option>
+                  <option value="review">Under Review — USCIS processing</option>
+                  <option value="rfe">RFE Received</option>
+                  <option value="approved">Approved ✓</option>
+                  <option value="denied">Denied</option>
+                </select>
+              </div>
+            </div>
+            <div class="dash-form-row">
+              <div class="form-group">
+                <label>Petitioner Name *</label>
+                <input type="text" name="petitioner_name" placeholder="Full legal name" required/>
+              </div>
+              <div class="form-group">
+                <label>Beneficiary Name *</label>
+                <input type="text" name="beneficiary_name" placeholder="Full legal name" required/>
+              </div>
+            </div>
+            <div class="dash-form-row">
+              <div class="form-group">
+                <label>USCIS Receipt Number</label>
+                <input type="text" name="receipt_number" placeholder="e.g. MSC2190000001" maxlength="13" style="text-transform:uppercase"/>
+              </div>
+              <div class="form-group">
+                <label>Priority Date</label>
+                <input type="date" name="priority_date"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Notes / Next Steps</label>
+              <textarea name="notes" rows="3" placeholder="Any notes about this case, outstanding tasks, upcoming interviews..."></textarea>
+            </div>
+            <div style="display:flex;gap:1rem;margin-top:.5rem">
+              <button type="submit" class="btn-primary" id="saveCaseBtn">Save Case</button>
+              <a href="immigration.html" class="btn-outline">Full Intake Form →</a>
+            </div>
+          </form>
+        </div>
+
+        <div style="margin-top:2rem">
+          <div class="dash-table-wrap">
+            <div class="dash-table-header"><span class="dash-table-title">My Cases</span></div>
+            <div id="immCasesBody">
+              <div class="dash-empty"><div class="dash-empty-icon">📂</div>No cases logged yet.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Documents ─────────────────────────────────────── -->
+      <div class="dash-page" id="page-documents">
+        <div class="dash-page-title">Documents</div>
+        <div class="dash-page-sub">Upload and manage your immigration documents securely.</div>
+        <div class="dash-alert dash-alert-info show" style="margin-bottom:1.5rem">
+          🔒 All documents are encrypted with AES-256 and stored in your dedicated Supabase storage bucket. Only you and your assigned attorney can access them.
+        </div>
+        <div class="dash-form">
+          <div class="dash-form-title">Upload Document</div>
+          <div class="form-group">
+            <label>Case (optional)</label>
+            <select id="docCaseSelect"><option value="">— Not linked to a case —</option></select>
+          </div>
+          <div class="doc-upload-area" id="docUploadArea">
+            <div class="doc-upload-icon">📎</div>
+            <div class="doc-upload-text">Drag & drop files here or <label for="docInput" style="color:var(--primary);cursor:pointer;font-weight:600">browse</label></div>
+            <div class="doc-upload-hint">PDF, JPG, PNG, DOCX — max 10 MB per file</div>
+            <input type="file" id="docInput" multiple accept=".pdf,.jpg,.jpeg,.png,.docx" style="display:none"/>
+          </div>
+          <div id="docList" class="doc-list"></div>
+        </div>
+      </div>
+
+      <!-- ── Submissions ─────────────────────────────────────── -->
+      <div class="dash-page" id="page-submissions">
+        <div class="dash-page-title">My Submissions</div>
+        <div class="dash-page-sub">Demo requests and intake forms you've submitted.</div>
+        <div class="dash-table-wrap">
+          <div class="dash-table-header"><span class="dash-table-title">All Submissions</span></div>
+          <div id="subsTableBody">
+            <div class="dash-empty"><div class="dash-empty-icon">✉️</div>No submissions yet.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Profile ─────────────────────────────────────────── -->
+      <div class="dash-page" id="page-profile">
+        <div class="dash-page-title">My Profile</div>
+        <div class="dash-page-sub">Update your personal information and preferences.</div>
+        <div id="profileAlert" class="dash-alert"></div>
+        <div class="dash-form" style="max-width:560px">
+          <div class="dash-form-title">Personal Information</div>
+          <form id="profileForm">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" name="full_name" id="profileName" placeholder="Your full legal name"/>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" id="profileEmail" disabled style="opacity:.6;cursor:not-allowed"/>
+              <div style="font-size:.72rem;color:var(--text-muted);margin-top:.3rem">Email cannot be changed. Contact support to update.</div>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" id="profilePhone" placeholder="+1 (555) 000-0000"/>
+            </div>
+            <button type="submit" class="btn-primary" id="saveProfileBtn">Save Changes</button>
+          </form>
+        </div>
+        <div class="dash-form" style="max-width:560px;margin-top:1.5rem">
+          <div class="dash-form-title" style="color:#EF4444">Danger Zone</div>
+          <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:1rem">These actions are irreversible. Please proceed with caution.</p>
+          <button class="btn-outline" style="border-color:#EF4444;color:#EF4444" onclick="if(confirm('Sign out of all devices?'))signOutAll()">Sign Out of All Devices</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script type="module">
+import { requireAuth, signOut, getUser } from './js/auth.js';
+import { getCasesByUser, getFormSubmissions, createCase } from './js/forms.js';
+
+// Auth guard
+const session = await requireAuth();
+const user = session?.user;
+if (!user) { window.location.href = 'auth.html'; }
+
+// Set user info
+const initials = (user.email || '?')[0].toUpperCase();
+document.getElementById('userAvatar').textContent = initials;
+document.getElementById('userEmail').textContent = user.email;
+document.getElementById('profileEmail').value = user.email;
+document.getElementById('welcomeText').textContent = `Good to see you, ${user.email}. Your legal dashboard at a glance.`;
+
+// Sign out
+document.getElementById('signOutBtn').addEventListener('click', signOut);
+window.signOutAll = signOut;
+
+// Page navigation
+window.showPage = (page, btn) => {
+  document.querySelectorAll('.dash-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.dash-nav-item').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + page)?.classList.add('active');
+  btn?.classList.add('active');
+  if (page === 'cases' || page === 'overview') loadCases();
+  if (page === 'submissions') loadSubmissions();
+  if (page === 'immigration') loadCases('immCasesBody');
+};
+
+// Load cases
+async function loadCases(targetId) {
+  const { data, error } = await getCasesByUser(user.id);
+  document.getElementById('statCases').textContent = data?.length ?? '0';
+
+  const renderTable = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (!data || data.length === 0) {
+      el.innerHTML = `<div class="dash-empty"><div class="dash-empty-icon">📂</div>No cases yet. <a href="immigration.html" style="color:var(--primary)">Start your first case →</a></div>`;
+      return;
+    }
+    el.innerHTML = `<table class="dash-table">
+      <thead><tr><th>Form</th><th>Petitioner</th><th>Beneficiary</th><th>Receipt #</th><th>Status</th><th>Priority Date</th></tr></thead>
+      <tbody>${data.map(c => `<tr>
+        <td><strong>${c.form_type}</strong></td>
+        <td>${c.petitioner_name||'—'}</td>
+        <td>${c.beneficiary_name||'—'}</td>
+        <td style="font-family:monospace;font-size:.8rem">${c.receipt_number||'—'}</td>
+        <td><span class="status-pill status-${c.status}">${c.status}</span></td>
+        <td>${c.priority_date||'—'}</td>
+      </tr>`).join('')}</tbody>
+    </table>`;
+  };
+
+  renderTable('recentCasesBody');
+  if (targetId) renderTable(targetId);
+}
+
+// Load submissions
+async function loadSubmissions() {
+  const { data } = await getFormSubmissions(user.id);
+  const el = document.getElementById('subsTableBody');
+  if (!data || data.length === 0) {
+    el.innerHTML = `<div class="dash-empty"><div class="dash-empty-icon">✉️</div>No submissions yet.</div>`; return;
+  }
+  el.innerHTML = `<table class="dash-table">
+    <thead><tr><th>Date</th><th>Name</th><th>Interest</th><th>Contact</th><th>Status</th></tr></thead>
+    <tbody>${data.map(s => `<tr>
+      <td>${new Date(s.created_at).toLocaleDateString()}</td>
+      <td>${s.name||'—'}</td>
+      <td>${s.interest||'—'}</td>
+      <td>${s.contact_method||'email'}</td>
+      <td><span class="status-pill status-${s.status||'new'}">${s.status||'new'}</span></td>
+    </tr>`).join('')}</tbody>
+  </table>`;
+}
+
+// Create case form
+document.getElementById('caseForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('saveCaseBtn');
+  btn.textContent = 'Saving…'; btn.disabled = true;
+  const fd = new FormData(e.target);
+  const data = { user_id: user.id, ...Object.fromEntries(fd.entries()) };
+  if (!data.priority_date) delete data.priority_date;
+  const { error } = await createCase(data);
+  btn.textContent = 'Save Case'; btn.disabled = false;
+  const alert = document.getElementById('caseFormAlert');
+  if (error) {
+    alert.textContent = 'Error: ' + error.message;
+    alert.className = 'dash-alert dash-alert-error show';
+  } else {
+    alert.textContent = '✓ Case saved successfully!';
+    alert.className = 'dash-alert dash-alert-success show';
+    e.target.reset();
+    loadCases('immCasesBody');
+    setTimeout(() => alert.classList.remove('show'), 4000);
+  }
+});
+
+// Profile save
+document.getElementById('profileForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('saveProfileBtn');
+  btn.textContent = 'Saving…'; btn.disabled = true;
+  const fd = new FormData(e.target);
+  const { error } = await window._supabase.from('profiles').upsert({ id: user.id, ...Object.fromEntries(fd.entries()), updated_at: new Date().toISOString() });
+  btn.textContent = 'Save Changes'; btn.disabled = false;
+  const alert = document.getElementById('profileAlert');
+  if (error) {
+    alert.textContent = 'Error: ' + error.message;
+    alert.className = 'dash-alert dash-alert-error show';
+  } else {
+    alert.textContent = '✓ Profile updated!';
+    alert.className = 'dash-alert dash-alert-success show';
+    setTimeout(() => alert.classList.remove('show'), 3000);
+  }
+});
+
+// Document upload area
+const docInput = document.getElementById('docInput');
+const docUploadArea = document.getElementById('docUploadArea');
+docUploadArea.addEventListener('dragover', e => { e.preventDefault(); docUploadArea.style.borderColor = 'var(--primary)'; });
+docUploadArea.addEventListener('dragleave', () => { docUploadArea.style.borderColor = ''; });
+docUploadArea.addEventListener('drop', e => { e.preventDefault(); docUploadArea.style.borderColor = ''; handleFiles(e.dataTransfer.files); });
+docInput.addEventListener('change', () => handleFiles(docInput.files));
+function handleFiles(files) {
+  const list = document.getElementById('docList');
+  [...files].forEach(f => {
+    const item = document.createElement('div');
+    item.className = 'doc-list-item';
+    item.innerHTML = `<span>📄 ${f.name}</span><span style="font-size:.75rem;color:var(--text-muted)">${(f.size/1024).toFixed(0)} KB</span><span style="color:var(--accent-2);font-size:.75rem">Ready to upload</span>`;
+    list.appendChild(item);
+  });
+}
+
+// Initial load
+loadCases();
+document.getElementById('statSubs').textContent = '—';
+getFormSubmissions(user.id).then(({data}) => { document.getElementById('statSubs').textContent = data?.length ?? '0'; });
+</script>
+</body>
+</html>

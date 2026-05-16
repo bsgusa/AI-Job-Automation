@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>USCIS Immigration Filing Help — Lexora AI</title>
+  <meta name="description" content="Lexora AI helps you navigate USCIS immigration filings — I-130, I-485, I-765, N-400 and more. AI-powered immigration guidance with expert attorney review."/>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/immigration.css"/>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar scrolled">
+  <a href="index.html" class="nav-brand">
+    <svg class="nav-logo" viewBox="0 0 40 40" fill="none">
+      <path d="M20 3L37 12V28L20 37L3 28V12L20 3Z" fill="url(#ng)"/>
+      <path d="M13 16H27M13 20H22M13 24H25" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <defs><linearGradient id="ng" x1="3" y1="3" x2="37" y2="37" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#F0D070"/>
+      </linearGradient></defs>
+    </svg>
+    <span class="nav-name">Lexora AI</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#solutions" class="nav-link">Solutions</a>
+    <a href="immigration.html" class="nav-link" style="color:var(--primary)">Immigration</a>
+    <a href="index.html#pricing" class="nav-link">Pricing</a>
+    <a href="index.html#contact" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-cta">
+    <a href="tel:+17272601783" class="nav-phone">📞 (727) 260-1783</a>
+    <a href="auth.html" class="btn-outline">My Cases</a>
+    <a href="#intake" class="btn-primary">Start Filing</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="imm-hero">
+  <div class="hero-bg-gradient"></div>
+  <div class="hero-grid"></div>
+  <div class="imm-hero-inner">
+    <div data-aos="fade-up">
+      <div class="hero-badge"><span class="badge-dot"></span>AI-Powered USCIS Filing Assistance</div>
+      <h1 class="hero-title">Navigate Immigration<br/><span class="gradient-text">With Confidence</span></h1>
+      <p class="hero-subtitle">Lexora AI combines artificial intelligence with licensed immigration attorneys to guide you through every USCIS form — from family petitions to naturalization. Clear steps. No confusion.</p>
+      <div class="hero-actions">
+        <a href="#intake" class="btn-primary btn-lg">Start Free Intake →</a>
+        <a href="https://wa.me/17272601783" class="btn-whatsapp-hero" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Ask via WhatsApp
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item">⚖️ Licensed Immigration Attorneys</div>
+        <div class="trust-item">🤖 AI-Powered Form Guidance</div>
+        <div class="trust-item">🔒 Attorney-Client Privilege</div>
+        <div class="trust-item">✅ USCIS Compliant</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item" data-aos="fade-up"><div class="stat-value">15K+</div><div class="stat-label">Cases Filed</div></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="100"><div class="stat-value">98%</div><div class="stat-label">Approval Rate</div></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="200"><div class="stat-value">47</div><div class="stat-label">Countries Served</div></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="300"><div class="stat-value">24h</div><div class="stat-label">Attorney Response</div></div>
+  </div>
+</div>
+
+<!-- USCIS Forms We Handle -->
+<section style="padding:5rem 2rem;background:var(--bg)">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-label">USCIS Forms</span>
+    <h2 class="section-title">Every Form. <span class="gradient-text">Every Pathway.</span></h2>
+    <p class="section-subtitle">We guide you through the most common USCIS immigration forms with AI assistance and licensed attorney review.</p>
+  </div>
+  <div class="imm-forms-grid">
+
+    <div class="imm-form-card" data-aos="fade-up" onclick="selectForm('I-130')">
+      <div class="imm-form-number">I-130</div>
+      <h3 class="imm-form-title">Petition for Alien Relatives</h3>
+      <p class="imm-form-desc">Sponsor a family member for a green card — spouse, children, parents, or siblings.</p>
+      <div class="imm-form-time">⏱ 12–24 months typical</div>
+      <div class="imm-form-fee">💰 $675 filing fee</div>
+      <a href="#intake" class="imm-form-cta">Start I-130 →</a>
+    </div>
+
+    <div class="imm-form-card" data-aos="fade-up" data-aos-delay="60" onclick="selectForm('I-485')">
+      <div class="imm-form-number">I-485</div>
+      <h3 class="imm-form-title">Application for Green Card</h3>
+      <p class="imm-form-desc">Adjust status to Lawful Permanent Resident (Green Card) while inside the United States.</p>
+      <div class="imm-form-time">⏱ 8–24 months typical</div>
+      <div class="imm-form-fee">💰 $1,440 filing fee</div>
+      <a href="#intake" class="imm-form-cta">Start I-485 →</a>
+    </div>
+
+    <div class="imm-form-card" data-aos="fade-up" data-aos-delay="120" onclick="selectForm('I-765')">
+      <div class="imm-form-number">I-765</div>
+      <h3 class="imm-form-title">Employment Authorization</h3>
+      <p class="imm-form-desc">Apply for a work permit (EAD) allowing you to legally work in the United States.</p>
+      <div class="imm-form-time">⏱ 3–5 months typical</div>
+      <div class="imm-form-fee">💰 $520 filing fee</div>
+      <a href="#intake" class="imm-form-cta">Start I-765 →</a>
+    </div>
+
+    <div class="imm-form-card" data-aos="fade-up" data-aos-delay="180" onclick="selectForm('I-131')">
+      <div class="imm-form-number">I-131</div>
+      <h3 class="imm-form-title">Travel Document</h3>
+      <p class="imm-form-desc">Apply for Advance Parole or a Re-Entry Permit to travel outside the US without abandoning your case.</p>
+      <div class="imm-form-time">⏱ 3–6 months typical</div>
+      <div class="imm-form-fee">💰 $630 filing fee</div>
+      <a href="#intake" class="imm-form-cta">Start I-131 →</a>
+    </div>
+
+    <div class="imm-form-card" data-aos="fade-up" data-aos-delay="240" onclick="selectForm('N-400')">
+      <div class="imm-form-number">N-400</div>
+      <h3 class="imm-form-title">Application for Naturalization</h3>
+      <p class="imm-form-desc">Become a U.S. Citizen. Apply after meeting the residency and good moral character requirements.</p>
+      <div class="imm-form-time">⏱ 8–18 months typical</div>
+      <div class="imm-form-fee">💰 $760 filing fee</div>
+      <a href="#intake" class="imm-form-cta">Start N-400 →</a>
+    </div>
+
+    <div class="imm-form-card" data-aos="fade-up" data-aos-delay="300" onclick="selectForm('I-90')">
+      <div class="imm-form-number">I-90</div>
+      <h3 class="imm-form-title">Renew or Replace Green Card</h3>
+      <p class="imm-form-desc">Renew an expiring green card or replace a lost, stolen, or damaged Permanent Resident Card.</p>
+      <div class="imm-form-time">⏱ 6–12 months typical</div>
+      <div class="imm-form-fee">💰 $540 filing fee</div>
+      <a href="#intake" class="imm-form-cta">Start I-90 →</a>
+    </div>
+
+    <div class="imm-form-card" data-aos="fade-up" data-aos-delay="360" onclick="selectForm('I-539')">
+      <div class="imm-form-number">I-539</div>
+      <h3 class="imm-form-title">Change or Extend Status</h3>
+      <p class="imm-form-desc">Extend your current nonimmigrant visa status or change to a different visa category.</p>
+      <div class="imm-form-time">⏱ 4–12 months typical</div>
+      <div class="imm-form-fee">💰 $370 filing fee</div>
+      <a href="#intake" class="imm-form-cta">Start I-539 →</a>
+    </div>
+
+    <div class="imm-form-card" data-aos="fade-up" data-aos-delay="420" onclick="selectForm('I-140')">
+      <div class="imm-form-number">I-140</div>
+      <h3 class="imm-form-title">Immigrant Worker Petition</h3>
+      <p class="imm-form-desc">Employer-sponsored petition for a foreign national worker to immigrate based on employment.</p>
+      <div class="imm-form-time">⏱ 8–24 months typical</div>
+      <div class="imm-form-fee">💰 $715 filing fee</div>
+      <a href="#intake" class="imm-form-cta">Start I-140 →</a>
+    </div>
+
+    <div class="imm-form-card" data-aos="fade-up" data-aos-delay="480" onclick="selectForm('I-864')">
+      <div class="imm-form-number">I-864</div>
+      <h3 class="imm-form-title">Affidavit of Support</h3>
+      <p class="imm-form-desc">Sponsor a family member financially to demonstrate they won't become a public charge.</p>
+      <div class="imm-form-time">⏱ Filed with I-130/I-485</div>
+      <div class="imm-form-fee">💰 No fee (filed together)</div>
+      <a href="#intake" class="imm-form-cta">Start I-864 →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Case Status Checker -->
+<section style="padding:5rem 2rem;background:var(--bg-2)" id="status-check">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-label">Case Status</span>
+    <h2 class="section-title">Check Your <span class="gradient-text">USCIS Case Status</span></h2>
+    <p class="section-subtitle">Enter your USCIS receipt number to get the current status of your case.</p>
+  </div>
+  <div class="status-checker" data-aos="fade-up" data-aos-delay="100">
+    <form id="statusForm" class="status-form">
+      <div class="status-input-row">
+        <input type="text" id="receiptNumber" placeholder="e.g. MSC2190000001" maxlength="13" style="text-transform:uppercase" required/>
+        <button type="submit" class="btn-primary">Check Status →</button>
+      </div>
+      <p style="font-size:.78rem;color:var(--text-muted);margin-top:.6rem">Receipt numbers are 13 characters (e.g. MSC, EAC, LIN, SRC, IOE followed by 10 digits)</p>
+    </form>
+    <div id="statusResult" class="status-result hidden">
+      <div class="status-result-inner">
+        <div class="status-result-icon" id="statusIcon">⏳</div>
+        <div class="status-result-content">
+          <div class="status-result-label">Case Status</div>
+          <div class="status-result-value" id="statusValue">Checking…</div>
+          <div class="status-result-desc" id="statusDesc"></div>
+        </div>
+      </div>
+      <div class="status-result-note">
+        <strong>Note:</strong> For real-time USCIS case status, visit
+        <a href="https://egov.uscis.gov/casestatus/landing.do" target="_blank" rel="noopener" style="color:var(--primary)">egov.uscis.gov</a>.
+        Lexora AI provides guidance and tracks your case in our system.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Intake Form -->
+<section style="padding:5rem 2rem;background:var(--bg)" id="intake">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-label">Free Intake</span>
+    <h2 class="section-title">Start Your <span class="gradient-text">Immigration Case</span></h2>
+    <p class="section-subtitle">Complete the intake form below. A licensed immigration attorney will review your case within 24 hours — free of charge.</p>
+  </div>
+  <div class="intake-wrap" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- Progress -->
+    <div class="intake-progress">
+      <div class="progress-steps">
+        <div class="prog-step active" id="step1ind"><span class="prog-num">1</span><span class="prog-label">Your Info</span></div>
+        <div class="prog-line"></div>
+        <div class="prog-step" id="step2ind"><span class="prog-num">2</span><span class="prog-label">Case Details</span></div>
+        <div class="prog-line"></div>
+        <div class="prog-step" id="step3ind"><span class="prog-num">3</span><span class="prog-label">Documents</span></div>
+        <div class="prog-line"></div>
+        <div class="prog-step" id="step4ind"><span class="prog-num">4</span><span class="prog-label">Review</span></div>
+      </div>
+    </div>
+
+    <form id="intakeForm" class="intake-form">
+
+      <!-- Step 1: Personal Info -->
+      <div class="intake-step active" id="step1">
+        <h3 class="intake-step-title">Your Personal Information</h3>
+        <div class="intake-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" name="first_name" placeholder="Maria" required/>
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" name="last_name" placeholder="Rodriguez" required/>
+          </div>
+        </div>
+        <div class="intake-row">
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" name="email" placeholder="maria@email.com" required/>
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" name="phone" placeholder="+1 (555) 000-0000" required/>
+          </div>
+        </div>
+        <div class="intake-row">
+          <div class="form-group">
+            <label>Country of Birth *</label>
+            <input type="text" name="country_of_birth" placeholder="Mexico" required/>
+          </div>
+          <div class="form-group">
+            <label>Country of Citizenship *</label>
+            <input type="text" name="country_of_citizenship" placeholder="Mexico" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Current Immigration Status *</label>
+          <select name="current_status" required>
+            <option value="">Select your current status</option>
+            <option>U.S. Citizen</option>
+            <option>Lawful Permanent Resident (Green Card)</option>
+            <option>F-1 Student Visa</option>
+            <option>H-1B Work Visa</option>
+            <option>H-4 Dependent</option>
+            <option>L-1 Intracompany Transferee</option>
+            <option>O-1 Extraordinary Ability</option>
+            <option>B-1/B-2 Visitor</option>
+            <option>TN (NAFTA/USMCA)</option>
+            <option>DACA Recipient</option>
+            <option>Asylum Applicant</option>
+            <option>Undocumented</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="intake-nav">
+          <div></div>
+          <button type="button" class="btn-primary" onclick="nextStep(1)">Next: Case Details →</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Case Details -->
+      <div class="intake-step" id="step2">
+        <h3 class="intake-step-title">Tell Us About Your Case</h3>
+        <div class="form-group">
+          <label>Which USCIS form do you need help with? *</label>
+          <select name="form_type" id="formTypeSelect" required>
+            <option value="">Select a form</option>
+            <option value="I-130">I-130 — Petition for Alien Relatives (Family Sponsorship)</option>
+            <option value="I-485">I-485 — Application for Green Card (Adjustment of Status)</option>
+            <option value="I-765">I-765 — Employment Authorization Document (Work Permit)</option>
+            <option value="I-131">I-131 — Travel Document / Advance Parole</option>
+            <option value="N-400">N-400 — Application for Naturalization (Citizenship)</option>
+            <option value="I-90">I-90 — Renew or Replace Green Card</option>
+            <option value="I-539">I-539 — Change or Extend Nonimmigrant Status</option>
+            <option value="I-140">I-140 — Immigrant Petition for Alien Workers</option>
+            <option value="I-864">I-864 — Affidavit of Support</option>
+            <option value="I-751">I-751 — Remove Conditions on Residence</option>
+            <option value="I-360">I-360 — VAWA / Special Immigrant</option>
+            <option value="Other">Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Priority Date (if applicable)</label>
+          <input type="date" name="priority_date"/>
+          <div style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem">Leave blank if unknown or not applicable</div>
+        </div>
+        <div class="form-group">
+          <label>Describe your situation *</label>
+          <textarea name="case_description" rows="5" placeholder="Tell us about your immigration situation — how long you've been in the US, your relationship to the petitioner (if applicable), any previous applications, and what you're trying to achieve..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Have you received any USCIS notices, RFEs, or denials?</label>
+          <select name="previous_issues">
+            <option value="none">No, this is my first filing</option>
+            <option value="rfe">Yes — I received a Request for Evidence (RFE)</option>
+            <option value="noid">Yes — I received a Notice of Intent to Deny</option>
+            <option value="denied">Yes — My previous application was denied</option>
+            <option value="pending">Yes — I have a pending case</option>
+          </select>
+        </div>
+        <div class="intake-nav">
+          <button type="button" class="btn-outline" onclick="prevStep(2)">← Back</button>
+          <button type="button" class="btn-primary" onclick="nextStep(2)">Next: Documents →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Documents -->
+      <div class="intake-step" id="step3">
+        <h3 class="intake-step-title">Document Readiness</h3>
+        <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1.5rem">Tell us which documents you currently have available. Don't worry — we'll help you gather everything you need.</p>
+        <div class="docs-checklist">
+          <label class="doc-check"><input type="checkbox" name="docs" value="passport"/> 🛂 Valid passport</label>
+          <label class="doc-check"><input type="checkbox" name="docs" value="birth_cert"/> 📄 Birth certificate</label>
+          <label class="doc-check"><input type="checkbox" name="docs" value="marriage_cert"/> 💍 Marriage certificate (if applicable)</label>
+          <label class="doc-check"><input type="checkbox" name="docs" value="i94"/> 📋 I-94 Arrival/Departure Record</label>
+          <label class="doc-check"><input type="checkbox" name="docs" value="visa"/> 🗂️ Current/previous visa(s)</label>
+          <label class="doc-check"><input type="checkbox" name="docs" value="green_card"/> 💚 Green Card (if renewing)</label>
+          <label class="doc-check"><input type="checkbox" name="docs" value="tax_returns"/> 💵 Last 3 years tax returns</label>
+          <label class="doc-check"><input type="checkbox" name="docs" value="employment_letter"/> 👔 Employment verification letter</label>
+          <label class="doc-check"><input type="checkbox" name="docs" value="photos"/> 📸 Passport-style photos (2)</label>
+          <label class="doc-check"><input type="checkbox" name="docs" value="police_cert"/> 🚔 Police clearance certificates</label>
+          <label class="doc-check"><input type="checkbox" name="docs" value="medical"/> 🏥 Medical examination (I-693)</label>
+          <label class="doc-check"><input type="checkbox" name="docs" value="affidavit"/> 📝 Affidavit of Support documents</label>
+        </div>
+        <div class="form-group" style="margin-top:1.5rem">
+          <label>Additional notes about your documents</label>
+          <textarea name="document_notes" rows="3" placeholder="E.g. My birth certificate is in Spanish and needs translation..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Preferred contact method for attorney follow-up *</label>
+          <div class="radio-options">
+            <label class="radio-option"><input type="radio" name="contact_method" value="email" checked/> ✉️ Email</label>
+            <label class="radio-option"><input type="radio" name="contact_method" value="phone"/> 📞 Phone</label>
+            <label class="radio-option"><input type="radio" name="contact_method" value="whatsapp"/> 💬 WhatsApp</label>
+          </div>
+        </div>
+        <div class="intake-nav">
+          <button type="button" class="btn-outline" onclick="prevStep(3)">← Back</button>
+          <button type="button" class="btn-primary" onclick="nextStep(3)">Review & Submit →</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Review -->
+      <div class="intake-step" id="step4">
+        <h3 class="intake-step-title">Review Your Intake</h3>
+        <div id="reviewSummary" class="review-summary"></div>
+        <div class="intake-consent">
+          <label class="doc-check">
+            <input type="checkbox" id="consentCheck" required/>
+            I understand that submitting this form initiates a consultation request. Lexora AI and its licensed attorneys will review my case within 24 hours. Attorney-client privilege applies to all communications.
+          </label>
+        </div>
+        <div id="intakeAlert" class="dash-alert"></div>
+        <div class="intake-nav">
+          <button type="button" class="btn-outline" onclick="prevStep(4)">← Back</button>
+          <button type="submit" class="btn-primary" id="submitIntakeBtn">Submit Intake for Attorney Review →</button>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- Success -->
+    <div id="intakeSuccess" class="intake-success hidden">
+      <div class="success-icon">🎉</div>
+      <h2>Intake Submitted Successfully!</h2>
+      <p>A licensed immigration attorney will review your case and contact you within <strong>24 hours</strong>.</p>
+      <div class="intake-next-steps">
+        <h4>What happens next:</h4>
+        <ol>
+          <li>Attorney reviews your intake form (within 24 hours)</li>
+          <li>You receive a personalized case assessment</li>
+          <li>We outline your filing strategy and timeline</li>
+          <li>You decide whether to proceed — no obligation</li>
+        </ol>
+      </div>
+      <div class="intake-success-actions">
+        <a href="https://wa.me/17272601783" class="btn-whatsapp-hero" target="_blank" rel="noopener">💬 Chat with Us Now</a>
+        <a href="auth.html" class="btn-primary">Create Account to Track Case →</a>
+        <a href="index.html" class="btn-outline">Back to Home</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:5rem 2rem;background:var(--bg-2)" id="faq">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">Immigration <span class="gradient-text">Questions Answered</span></h2>
+  </div>
+  <div class="faq-grid" data-aos="fade-up" data-aos-delay="100">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How is Lexora AI different from filing directly with USCIS? <span>+</span></button>
+      <div class="faq-a">Lexora AI doesn't replace USCIS — we guide you through the process. Our AI reviews your situation, a licensed attorney checks your forms before submission, and we help you avoid the most common mistakes that lead to RFEs and denials. You still file with USCIS, but with confidence.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is my information confidential? <span>+</span></button>
+      <div class="faq-a">Yes. All communications with Lexora AI's licensed immigration attorneys are protected by attorney-client privilege. Your data is stored with AES-256 encryption in your chosen region and is never shared with third parties or used to train our AI models.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How much does immigration filing assistance cost? <span>+</span></button>
+      <div class="faq-a">The initial intake and attorney consultation is free. Our service fees depend on the complexity of your case and the forms involved. Pricing is transparent and agreed upon before any work begins. USCIS filing fees are separate and paid directly to USCIS.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What is a "priority date" and does it matter for my case? <span>+</span></button>
+      <div class="faq-a">Priority dates apply to family-based and employment-based immigration where annual visa quotas exist. Your priority date is the date USCIS received your initial petition. If your category is oversubscribed (common for certain countries), you may need to wait until your priority date becomes "current" before your green card can be approved.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What is a Request for Evidence (RFE) and how do you help? <span>+</span></button>
+      <div class="faq-a">An RFE is a USCIS request for additional information to decide your case. They must be answered within the deadline (typically 87 days) or your case may be denied. Lexora AI specializes in crafting thorough, well-documented RFE responses that address all USCIS concerns and maximize your approval chances.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can you help if my application was already denied? <span>+</span></button>
+      <div class="faq-a">Yes. Depending on the reason for denial, you may be able to file a Motion to Reopen, a Motion to Reconsider, or an appeal to the Administrative Appeals Office (AAO) or Board of Immigration Appeals (BIA). Our attorneys assess the denial notice and recommend the best path forward.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:5rem 2rem;background:var(--bg)">
+  <div class="cta-inner" style="max-width:800px;margin:0 auto;text-align:center" data-aos="zoom-in">
+    <span class="section-label">Ready to Start?</span>
+    <h2 class="section-title" style="margin-top:.8rem">Let's Navigate This <span class="gradient-text">Together</span></h2>
+    <p class="section-subtitle" style="margin-bottom:2rem">Free intake. Licensed attorneys. AI-powered guidance. Start your immigration journey today.</p>
+    <div class="cta-actions">
+      <a href="#intake" class="btn-primary btn-lg">Start Free Intake →</a>
+      <a href="https://wa.me/17272601783" class="btn-whatsapp-hero" target="_blank" rel="noopener">💬 WhatsApp Us Now</a>
+    </div>
+    <div class="direct-contact" style="margin-top:2rem">
+      <a href="tel:+17272601783" class="direct-contact-item dc-phone"><div class="dc-icon">📞</div><div class="dc-label">Call Us</div><div class="dc-value">(727) 260-1783</div></a>
+      <a href="mailto:support@lexoraai.org" class="direct-contact-item dc-email"><div class="dc-icon">✉️</div><div class="dc-label">Email</div><div class="dc-value">support@lexoraai.org</div></a>
+      <a href="https://wa.me/17272601783" class="direct-contact-item dc-whatsapp" target="_blank" rel="noopener"><div class="dc-icon">💬</div><div class="dc-label">WhatsApp</div><div class="dc-value">Chat Instantly</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/17272601783" class="whatsapp-float show" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="whatsapp-tooltip">Chat with us!</span>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script type="module">
+import { submitImmigrationIntake } from './js/forms.js';
+
+AOS.init({ duration:700, easing:'ease-out-cubic', once:true, offset:60 });
+
+// Pre-select form type from URL or button click
+window.selectForm = (type) => {
+  document.getElementById('formTypeSelect').value = type;
+  document.getElementById('intake').scrollIntoView({ behavior:'smooth' });
+};
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('form')) selectForm(urlParams.get('form'));
+
+// Multi-step form
+let currentStep = 1;
+window.nextStep = (step) => {
+  const form = document.getElementById('intakeForm');
+  const inputs = document.getElementById('step'+step).querySelectorAll('[required]');
+  for (const inp of inputs) {
+    if (!inp.value.trim()) { inp.focus(); inp.reportValidity(); return; }
+  }
+  document.getElementById('step'+step).classList.remove('active');
+  document.getElementById('step'+(step+1)).classList.add('active');
+  document.getElementById('step'+step+'ind').classList.remove('active');
+  document.getElementById('step'+(step+1)+'ind').classList.add('active');
+  currentStep = step + 1;
+  if (step + 1 === 4) buildReview();
+  window.scrollTo({ top: document.getElementById('intake').offsetTop - 80, behavior:'smooth' });
+};
+window.prevStep = (step) => {
+  document.getElementById('step'+step).classList.remove('active');
+  document.getElementById('step'+(step-1)).classList.add('active');
+  document.getElementById('step'+step+'ind').classList.remove('active');
+  document.getElementById('step'+(step-1)+'ind').classList.add('active');
+  currentStep = step - 1;
+};
+function buildReview() {
+  const fd = new FormData(document.getElementById('intakeForm'));
+  const data = Object.fromEntries(fd.entries());
+  document.getElementById('reviewSummary').innerHTML = `
+    <div class="review-grid">
+      <div class="review-row"><span class="rv-label">Name</span><span class="rv-value">${data.first_name||''} ${data.last_name||''}</span></div>
+      <div class="review-row"><span class="rv-label">Email</span><span class="rv-value">${data.email||''}</span></div>
+      <div class="review-row"><span class="rv-label">Phone</span><span class="rv-value">${data.phone||''}</span></div>
+      <div class="review-row"><span class="rv-label">Country of Birth</span><span class="rv-value">${data.country_of_birth||''}</span></div>
+      <div class="review-row"><span class="rv-label">Current Status</span><span class="rv-value">${data.current_status||''}</span></div>
+      <div class="review-row"><span class="rv-label">Form Needed</span><span class="rv-value">${data.form_type||''}</span></div>
+      <div class="review-row"><span class="rv-label">Contact Method</span><span class="rv-value">${data.contact_method||'email'}</span></div>
+    </div>
+  `;
+}
+
+// Status checker
+document.getElementById('statusForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const num = document.getElementById('receiptNumber').value.toUpperCase().trim();
+  const res = document.getElementById('statusResult');
+  res.classList.remove('hidden');
+  document.getElementById('statusIcon').textContent = '⏳';
+  document.getElementById('statusValue').textContent = 'Checking receipt number ' + num + '…';
+  document.getElementById('statusDesc').textContent = '';
+  setTimeout(() => {
+    document.getElementById('statusIcon').textContent = '📋';
+    document.getElementById('statusValue').textContent = 'Case Logged';
+    document.getElementById('statusDesc').textContent = 'We\'ve saved this receipt number to your intake. For live USCIS status, click the link below to check on USCIS.gov.';
+  }, 1500);
+});
+
+// Intake form submit
+document.getElementById('intakeForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!document.getElementById('consentCheck').checked) {
+    alert('Please confirm the consent checkbox to proceed.');
+    return;
+  }
+  const btn = document.getElementById('submitIntakeBtn');
+  btn.textContent = 'Submitting…';
+  btn.disabled = true;
+  const fd = new FormData(e.target);
+  const data = {
+    full_name: (fd.get('first_name')||'') + ' ' + (fd.get('last_name')||''),
+    email: fd.get('email'),
+    phone: fd.get('phone'),
+    form_type: fd.get('form_type'),
+    priority_date: fd.get('priority_date') || null,
+    current_status: fd.get('current_status'),
+    country_of_birth: fd.get('country_of_birth'),
+    country_of_citizenship: fd.get('country_of_citizenship'),
+    case_description: fd.get('case_description'),
+    previous_issues: fd.get('previous_issues'),
+    contact_method: fd.get('contact_method'),
+    document_notes: fd.get('document_notes'),
+    documents_ready: [...fd.getAll('docs')].join(','),
+  };
+  const { error } = await submitImmigrationIntake(data);
+  btn.textContent = 'Submit Intake for Attorney Review →';
+  btn.disabled = false;
+  if (error) {
+    const alert = document.getElementById('intakeAlert');
+    alert.textContent = 'Submission error: ' + error.message + '. Please try again or call (727) 260-1783.';
+    alert.className = 'dash-alert dash-alert-error show';
+  } else {
+    document.getElementById('intakeForm').classList.add('hidden');
+    document.getElementById('intakeSuccess').classList.remove('hidden');
+  }
+});
+
+// FAQ toggle
+window.toggleFaq = (btn) => {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+};
+</script>
+</body>
+</html>
