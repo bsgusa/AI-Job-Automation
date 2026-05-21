@@ -10,13 +10,13 @@
 .auth-bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 .auth-grid{
   position:absolute;inset:0;
-  background-image:linear-gradient(rgba(201,168,76,.04)1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04)1px,transparent 1px);
+  background-image:linear-gradient(rgba(30,64,175,.04)1px,transparent 1px),linear-gradient(90deg,rgba(30,64,175,.04)1px,transparent 1px);
   background-size:60px 60px;
 }
 .auth-glow{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(201,168,76,.08)0%,transparent 70%);
+  background:radial-gradient(circle,rgba(30,64,175,.08)0%,transparent 70%);
 }
 .auth-wrapper{
   position:relative;z-index:1;
@@ -50,11 +50,11 @@
   color:var(--text);font-family:inherit;font-size:.95rem;
   transition:all var(--transition);outline:none;
 }
-.auth-field input:focus{border-color:var(--primary);background:rgba(201,168,76,.05);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.auth-field input:focus{border-color:var(--primary);background:rgba(30,64,175,.05);box-shadow:0 0 0 3px rgba(30,64,175,.12)}
 .auth-btn{
   width:100%;display:flex;align-items:center;justify-content:center;gap:.6rem;
   padding:.9rem 1.5rem;
-  background:var(--gradient);color:#07080f;
+  background:var(--gradient);color:#FFFFFF;
   font-weight:700;font-size:.95rem;border-radius:8px;
   transition:all var(--transition);border:none;cursor:pointer;
 }
@@ -140,7 +140,7 @@
 .dash-avatar{
   width:34px;height:34px;border-radius:50%;
   background:var(--gradient);display:flex;align-items:center;justify-content:center;
-  font-size:.75rem;font-weight:700;color:#07080f;
+  font-size:.75rem;font-weight:700;color:#FFFFFF;
 }
 .dash-signout{
   padding:.45rem .9rem;border:1px solid var(--border);border-radius:6px;
@@ -163,7 +163,7 @@
   border:none;background:none;width:100%;text-align:left;
 }
 .dash-nav-item:hover{background:var(--surface);color:var(--text)}
-.dash-nav-item.active{background:rgba(201,168,76,.1);color:var(--primary);font-weight:600}
+.dash-nav-item.active{background:rgba(30,64,175,.1);color:var(--primary);font-weight:600}
 .dash-nav-item .nav-icon{font-size:1rem;width:20px;text-align:center}
 .dash-main{flex:1;overflow-y:auto;padding:2rem}
 .dash-content{max-width:1000px;margin:0 auto}
@@ -200,7 +200,7 @@
 .status-review{background:rgba(59,130,246,.12);color:#3B82F6}
 .status-approved{background:rgba(16,185,129,.12);color:#10B981}
 .status-denied{background:rgba(239,68,68,.12);color:#EF4444}
-.status-new{background:rgba(201,168,76,.12);color:var(--primary)}
+.status-new{background:rgba(30,64,175,.12);color:var(--primary)}
 
 /* Empty state */
 .dash-empty{
@@ -223,7 +223,7 @@
   border-radius:8px;color:var(--text);font-family:inherit;font-size:.88rem;
   transition:all var(--transition);outline:none;
 }
-.dash-form input:focus,.dash-form select:focus,.dash-form textarea:focus{border-color:var(--primary);background:rgba(201,168,76,.05);box-shadow:0 0 0 3px rgba(201,168,76,.1)}
+.dash-form input:focus,.dash-form select:focus,.dash-form textarea:focus{border-color:var(--primary);background:rgba(30,64,175,.05);box-shadow:0 0 0 3px rgba(30,64,175,.1)}
 .dash-form select option{background:var(--bg-2)}
 .dash-form textarea{min-height:100px;resize:vertical}
 .dash-form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -237,7 +237,7 @@
 .dash-alert.show{display:block}
 .dash-alert-success{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);color:#10B981}
 .dash-alert-error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#EF4444}
-.dash-alert-info{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);color:var(--primary)}
+.dash-alert-info{background:rgba(30,64,175,.1);border:1px solid rgba(30,64,175,.2);color:var(--primary)}
 
 /* Document upload */
 .doc-upload-area{
@@ -245,7 +245,7 @@
   padding:2.5rem;text-align:center;cursor:pointer;
   transition:all var(--transition);margin-bottom:1rem;
 }
-.doc-upload-area:hover{border-color:var(--primary);background:rgba(201,168,76,.04)}
+.doc-upload-area:hover{border-color:var(--primary);background:rgba(30,64,175,.04)}
 .doc-upload-icon{font-size:2rem;margin-bottom:.6rem}
 .doc-upload-text{font-size:.9rem;font-weight:500;margin-bottom:.3rem}
 .doc-upload-hint{font-size:.75rem;color:var(--text-muted)}
