@@ -391,7 +391,7 @@
         <li style="color:var(--text-muted)">✗ API access</li>
         <li style="color:var(--text-muted)">✗ Custom integrations</li>
       </ul>
-      <a href="#contact" class="btn-outline" style="width:100%;justify-content:center;margin-top:auto">Start Free Trial</a>
+      <a href="#contact" class="btn-outline plan-cta" data-plan="Starter — $299/month" style="width:100%;justify-content:center;margin-top:auto">Start Free Trial</a>
     </div>
 
     <div class="pricing-card pricing-featured" data-aos="fade-up" data-aos-delay="100">
@@ -409,7 +409,7 @@
         <li>✓ Email + chat (24h SLA)</li>
         <li>✓ GDPR, HIPAA compliant</li>
       </ul>
-      <a href="#contact" class="btn-primary" style="width:100%;justify-content:center;margin-top:auto">Start Free Trial</a>
+      <a href="#contact" class="btn-primary plan-cta" data-plan="Professional — $999/month" style="width:100%;justify-content:center;margin-top:auto">Start Free Trial</a>
     </div>
 
     <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
@@ -426,7 +426,7 @@
         <li>✓ 4-hour SLA support</li>
         <li>✓ FedRAMP, CCPA ready</li>
       </ul>
-      <a href="#contact" class="btn-outline" style="width:100%;justify-content:center;margin-top:auto">Contact Sales</a>
+      <a href="#contact" class="btn-outline plan-cta" data-plan="Enterprise — Custom Pricing" style="width:100%;justify-content:center;margin-top:auto">Request Quote</a>
     </div>
 
     <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
@@ -443,7 +443,7 @@
         <li>✓ Government procurement</li>
         <li>✓ Multi-agency licensing</li>
       </ul>
-      <a href="#contact" class="btn-outline" style="width:100%;justify-content:center;margin-top:auto">Request Proposal</a>
+      <a href="#contact" class="btn-outline plan-cta" data-plan="Government — Custom Pricing" style="width:100%;justify-content:center;margin-top:auto">Request Proposal</a>
     </div>
 
   </div>
@@ -453,6 +453,40 @@
       <span>Questions? Talk to us directly:</span>
       <a href="tel:+17272601783" class="btn-ghost">📞 (727) 260-1783</a>
       <a href="https://wa.me/17272601783" class="btn-whatsapp-small" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Billing & Payment Info -->
+  <div class="billing-info-bar" data-aos="fade-up">
+    <div class="billing-info-inner">
+      <div class="billing-info-item">
+        <span class="billing-icon">💳</span>
+        <div>
+          <div class="billing-label">Accepted Payments</div>
+          <div class="billing-value">Visa · Mastercard · Amex · ACH · Wire Transfer</div>
+        </div>
+      </div>
+      <div class="billing-info-item">
+        <span class="billing-icon">🧾</span>
+        <div>
+          <div class="billing-label">Invoice Billing</div>
+          <div class="billing-value">Net-30 invoices available for Enterprise & Government</div>
+        </div>
+      </div>
+      <div class="billing-info-item">
+        <span class="billing-icon">🔄</span>
+        <div>
+          <div class="billing-label">Billing Cycle</div>
+          <div class="billing-value">Monthly or Annual (save 20% annually)</div>
+        </div>
+      </div>
+      <div class="billing-info-item">
+        <span class="billing-icon">🛡️</span>
+        <div>
+          <div class="billing-label">Cancellation</div>
+          <div class="billing-value">Cancel anytime · No lock-in · Prorated refunds</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -871,7 +905,8 @@
   </div>
   <div class="contact-inner" data-aos="fade-up" data-aos-delay="100">
     <div class="contact-form" id="contactFormWrapper">
-      <form id="contactForm">
+      <form id="contactForm" action="https://formspree.io/f/mjgdvojk" method="POST">
+        <input type="hidden" name="_subject" value="New Demo Request — Lexora AI" />
         <div class="form-row">
           <div class="form-group">
             <label>First Name *</label>
@@ -896,24 +931,41 @@
           <label>Organization *</label>
           <input type="text" name="organization" placeholder="Your Law Firm or Company" required />
         </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Plan Interested In</label>
+            <select name="plan" id="planSelect">
+              <option value="">— Select a plan —</option>
+              <option value="Starter — $299/month">Starter — $299/month</option>
+              <option value="Professional — $999/month">Professional — $999/month</option>
+              <option value="Enterprise — Custom Pricing">Enterprise — Custom Pricing</option>
+              <option value="Government — Custom Pricing">Government — Custom Pricing</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Service Interested In</label>
+            <select name="service">
+              <option>Contract Intelligence</option>
+              <option>Litigation Intelligence</option>
+              <option>Regulatory Compliance</option>
+              <option>Legal Research Engine</option>
+              <option>IP &amp; Patent Intelligence</option>
+              <option>M&amp;A Due Diligence</option>
+              <option>Full Platform</option>
+            </select>
+          </div>
+        </div>
         <div class="form-group">
-          <label>I'm interested in</label>
-          <select name="interest">
-            <option>Contract Intelligence</option>
-            <option>Litigation Intelligence</option>
-            <option>Regulatory Compliance</option>
-            <option>Legal Research Engine</option>
-            <option>IP & Patent Intelligence</option>
-            <option>M&A Due Diligence</option>
-            <option>Full Platform</option>
-          </select>
+          <label>Message / Additional Notes</label>
+          <textarea name="message" rows="4" placeholder="Tell us about your firm's needs, team size, or any specific questions…"></textarea>
         </div>
         <div class="contact-method-group">
           <label>Preferred contact method</label>
           <div class="radio-options">
-            <label class="radio-option"><input type="radio" name="contact" value="email" checked /> ✉️ Email</label>
-            <label class="radio-option"><input type="radio" name="contact" value="phone" /> 📞 Phone</label>
-            <label class="radio-option"><input type="radio" name="contact" value="whatsapp" /> 💬 WhatsApp</label>
+            <label class="radio-option"><input type="radio" name="contact_method" value="email" checked /> ✉️ Email</label>
+            <label class="radio-option"><input type="radio" name="contact_method" value="phone" /> 📞 Phone</label>
+            <label class="radio-option"><input type="radio" name="contact_method" value="whatsapp" /> 💬 WhatsApp</label>
           </div>
         </div>
         <div class="form-submit">

@@ -978,4 +978,30 @@ section{padding:6rem 2rem}
   .cta-actions{flex-direction:column;width:100%}
   .cta-actions .btn-primary,.cta-actions .btn-outline{width:100%;justify-content:center}
   .industries-grid{grid-template-columns:repeat(2,1fr)}
+  .billing-info-inner{grid-template-columns:1fr 1fr}
+}
+
+/* ── Billing Info Bar ───────────────────────────────────── */
+.billing-info-bar{
+  margin-top:2.5rem;
+  padding:2rem;
+  background:rgba(201,168,76,.06);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+}
+.billing-info-inner{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;
+}
+.billing-info-item{
+  display:flex;
+  align-items:flex-start;
+  gap:.85rem;
+}
+.billing-icon{font-size:1.4rem;line-height:1;flex-shrink:0;margin-top:.15rem}
+.billing-label{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem}
+.billing-value{font-size:.9rem;color:var(--text);line-height:1.5}
+@media(max-width:900px){
+  .billing-info-inner{grid-template-columns:1fr 1fr}
 }
