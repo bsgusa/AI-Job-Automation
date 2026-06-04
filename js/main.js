@@ -223,19 +223,47 @@ document.querySelectorAll('.solution-card,.result-card,.hero-card').forEach(card
   loop();
 })();
 
-/* ── Contact form ───────────────────────────────────────── */
+/* ── Plan pre-fill from pricing buttons ─────────────────── */
+document.querySelectorAll('.plan-cta[data-plan]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const planSelect = document.getElementById('planSelect');
+    if (planSelect) planSelect.value = btn.dataset.plan;
+  });
+});
+
+/* ── Contact form — Formspree AJAX ──────────────────────── */
 const contactForm = document.getElementById('contactForm');
 const successMsg  = document.querySelector('.success-message');
 
-contactForm && contactForm.addEventListener('submit', e => {
+contactForm && contactForm.addEventListener('submit', async e => {
   e.preventDefault();
   const btn = contactForm.querySelector('button[type="submit"]');
   if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
 
-  setTimeout(() => {
-    contactForm.style.display = 'none';
-    if (successMsg) successMsg.classList.add('show');
-  }, 1200);
+  try {
+    const res = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      contactForm.style.display = 'none';
+      if (successMsg) successMsg.classList.add('show');
+    } else {
+      throw new Error('server error');
+    }
+  } catch {
+    if (btn) { btn.textContent = 'Request My Demo →'; btn.disabled = false; }
+    const errDiv = contactForm.querySelector('.form-error') || (() => {
+      const d = document.createElement('p');
+      d.className = 'form-error';
+      d.style.cssText = 'color:#f87171;margin-top:.75rem;font-size:.9rem;text-align:center';
+      contactForm.appendChild(d);
+      return d;
+    })();
+    errDiv.textContent = 'Submission failed. Please call (727) 260-1783 or chat on WhatsApp.';
+  }
 });
 
 /* ── Smooth scroll for nav links ────────────────────────── */
