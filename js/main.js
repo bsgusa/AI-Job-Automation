@@ -100,7 +100,7 @@ backToTop && backToTop.addEventListener('click', () => {
   const ctx = canvas.getContext('2d');
 
   let W, H, particles;
-  const GOLD = '#C9A84C';
+  const GOLD = '#1E40AF';
   const N    = window.innerWidth < 768 ? 40 : 80;
 
   function resize() {
@@ -137,7 +137,7 @@ backToTop && backToTop.addEventListener('click', () => {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(201,168,76,${(.12 * (1 - dist / 120)).toFixed(3)})`;
+          ctx.strokeStyle = `rgba(30,64,175,${(.08 * (1 - dist / 120)).toFixed(3)})`;
           ctx.lineWidth = .5;
           ctx.stroke();
         }
@@ -151,7 +151,7 @@ backToTop && backToTop.addEventListener('click', () => {
       if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(201,168,76,${p.alpha})`;
+      ctx.fillStyle = `rgba(30,64,175,${(p.alpha * 0.6).toFixed(3)})`;
       ctx.fill();
     });
 
