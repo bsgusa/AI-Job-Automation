@@ -13,7 +13,7 @@
 //
 // SOURCE OF TRUTH. Ventures vendor a copy — do not redefine these shapes.
 
-import type { VentureId } from './ventures.js';
+import type { VentureId } from './ventures';
 
 /**
  * Audit actions. Append-only: these are stored values that reports key off.

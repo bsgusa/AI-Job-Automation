@@ -17,8 +17,8 @@
 //
 // SOURCE OF TRUTH. Ventures vendor a copy — do not redefine these shapes.
 
-import type { VentureId } from './ventures.js';
-import type { ModelClass, CallerContext, ToolDefinition } from './ai-gateway.js';
+import type { VentureId } from './ventures';
+import type { ModelClass, CallerContext, ToolDefinition } from './ai-gateway';
 
 /**
  * Permissions an agent can hold. Deliberately coarse and explicit: an agent
@@ -196,20 +196,23 @@ export function validateAgentDefinition(def: AgentDefinition): string[] {
     problems.push(`Agent '${def.id}' must declare a positive maxRunCostUsd.`);
   }
 
-  const declared = new Set<string>(def.permissions);
   for (const p of def.permissions) {
     if (!(AGENT_PERMISSIONS as readonly string[]).includes(p)) {
       problems.push(`Agent '${def.id}' declares unknown permission '${p}'.`);
     }
   }
 
+  // Iterates def.permissions directly rather than spreading a Set: this file is
+  // vendored into repos whose tsconfig targets pre-ES2015 without
+  // downlevelIteration, where a Set spread fails to compile.
+  const hasWritePermission = def.permissions.some(
+    (p) => p.startsWith('write_') || p === 'external_side_effect' || p === 'draft_content',
+  );
+
   // A write tool with no corresponding write permission is a mis-declaration.
   for (const tool of def.tools) {
     if (/^(write|create|update|delete|send|submit|post|publish)_/.test(tool.name)) {
-      const hasWrite = [...declared].some((p) => p.startsWith('write_')) ||
-        declared.has('external_side_effect') ||
-        declared.has('draft_content');
-      if (!hasWrite) {
+      if (!hasWritePermission) {
         problems.push(
           `Agent '${def.id}' exposes mutating tool '${tool.name}' but declares no write permission.`,
         );

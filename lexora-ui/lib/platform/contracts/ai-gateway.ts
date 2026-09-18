@@ -18,7 +18,7 @@
 //
 // SOURCE OF TRUTH. Ventures vendor a copy — do not redefine these shapes.
 
-import type { VentureId } from './ventures.js';
+import type { VentureId } from './ventures';
 
 /**
  * Capability classes a venture can ask for, instead of naming a model. The

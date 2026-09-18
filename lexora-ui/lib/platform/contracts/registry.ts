@@ -19,7 +19,7 @@
 // Descriptions here are deliberately plain. No metric, certification, or
 // customer claim belongs in this file.
 
-import { VENTURE_IDS, type Venture, type VentureId } from './ventures.js';
+import { VENTURE_IDS, type Venture, type VentureId } from './ventures';
 
 const PROPRIETARY = { spdx: 'proprietary', copyleft: false, noticeRequired: false } as const;
 

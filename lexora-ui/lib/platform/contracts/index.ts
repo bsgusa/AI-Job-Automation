@@ -17,15 +17,16 @@
 // falls behind. That keeps the contract single-sourced without coupling six
 // deployments to one package registry.
 
-export * from './ventures.js';
-export * from './registry.js';
-export * from './ai-gateway.js';
-export * from './agent-runtime.js';
-export * from './audit.js';
+export * from './ventures';
+export * from './registry';
+export * from './ai-gateway';
+export * from './agent-runtime';
+export * from './audit';
+export * from './adapters';
 
 /**
  * Contract version. Bump the minor on an additive change, the major on a
  * breaking one. The vendored-copy drift test reports this, so a venture running
  * an old contract is visible rather than silently divergent.
  */
-export const PLATFORM_CONTRACT_VERSION = '1.0.0';
+export const PLATFORM_CONTRACT_VERSION = '1.1.0';
