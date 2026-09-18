@@ -27,9 +27,9 @@ Lexora AI delivers six integrated AI products covering the full spectrum of lega
 - IP Assignment & Licensing Agreements
 
 ### Key Metrics
-- **97%** reduction in contract review time
-- **< 4 seconds** to analyze a 500-page contract
-- **94%** accuracy on risk flag detection
+We do not publish review-time, latency, or accuracy figures. We have not measured them in a way we
+could reproduce for you, and we will not quote a number we cannot defend. Ask us for a trial on your
+own documents instead.
 
 ---
 
@@ -58,7 +58,7 @@ Lexora AI delivers six integrated AI products covering the full spectrum of lega
 ### Frameworks Covered (200+)
 - **Privacy:** GDPR, CCPA, CPRA, LGPD, PIPEDA, PDPA
 - **Financial:** SOX, Dodd-Frank, MiFID II, Basel III, AML/KYC
-- **Healthcare:** HIPAA, HITECH, FDA 21 CFR Part 11
+- **Healthcare:** obligations you configure yourself (e.g. HIPAA, HITECH, FDA 21 CFR Part 11). Lexora AI tracks the obligations you enter — it does not certify your compliance.
 - **Employment:** FLSA, EEOC, ADA, FMLA
 - **Industry:** FCPA, SEC, FINRA, PCI-DSS
 

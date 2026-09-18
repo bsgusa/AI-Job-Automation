@@ -6,16 +6,19 @@
 
 ## ✅ Shipped — Q1/Q2 2026 (v2.0)
 
-- [x] Full marketing website with 9 comprehensive sections
-- [x] LexLLM™ v2 — 40% accuracy improvement over v1
-- [x] M&A Due Diligence module (GA)
-- [x] IP & Patent Intelligence module (GA)
-- [x] SOC 2 Type II certification
-- [x] FedRAMP Authorization
-- [x] EU data residency (Frankfurt region)
-- [x] APAC data residency (Singapore, Tokyo)
-- [x] SSO via SAML 2.0 and OIDC
-- [x] 47-jurisdiction coverage milestone
+- [x] Marketing website (static, no build step)
+- [x] Supabase Auth magic-link sign-in
+- [x] Lead capture → `form_submissions`
+- [x] Immigration intake questionnaire → `immigration_intakes`
+- [x] Case and document tracking → `immigration_cases`, `case_documents`
+- [x] Marriage green-card application flow (`lexora-ui/app/apply/`)
+- [x] Retrieval over USCIS reference text (`lexora-ui/lib/rag.ts`)
+- [x] Row Level Security on every table
+
+> The previous version of this list claimed SOC 2 Type II certification, FedRAMP authorization, EU and
+> APAC data residency, SAML/OIDC SSO, a "LexLLM™ v2" model, GA modules for M&A and IP, and a
+> 47-jurisdiction milestone. **None of those shipped.** They have been removed from the shipped list;
+> the ones we still intend to build are tracked under Planned below.
 
 ---
 
@@ -47,7 +50,7 @@
 
 - [ ] **Lexora Voice** — Verbal legal research and contract dictation
 - [ ] **Autonomous deal room** — AI-managed M&A process from NDA to close
-- [ ] **Global court monitor** — Real-time monitoring of all 47 jurisdictions
+- [ ] **Docket monitoring** — start with a single jurisdiction and expand only as coverage is actually built
 - [ ] **Predictive regulation** — AI-forecasted regulatory landscapes 12 months out
 - [ ] **Access to Justice Initiative** — Free tier for legal aid organizations
 

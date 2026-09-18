@@ -1,5 +1,13 @@
 # Changelog
 
+> ### ⚠️ Correction notice
+>
+> Entries below describe what shipped at the time. Several of those shipped items presented
+> unsubstantiated claims — certifications Lexora AI does not hold, customer and document counts we
+> could not evidence, and a proprietary model ("LexLLM™") that does not exist. Those claims have since
+> been removed from the product. Individual entries carry inline corrections. See
+> [`docs/CLAIMS_CORRECTION.md`](docs/CLAIMS_CORRECTION.md).
+
 All notable changes to Lexora AI are documented here.
 
 This project adheres to [Semantic Versioning](https://semver.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
@@ -13,7 +21,8 @@ This project adheres to [Semantic Versioning](https://semver.org/) and [Conventi
 #### Added
 - **Full marketing website** with 9 comprehensive sections
 - **Hero section** — animated particle canvas, LexLLM™ dashboard mockup, live contract analysis visualization
-- **Stats bar** — animated counters: 2.4M+ documents, 98% satisfaction, 47 jurisdictions, 60% cost reduction
+- **Stats bar** — animated counters
+  > Corrected: the original counters (2.4M+ documents, 98% satisfaction, 47 jurisdictions, 60% cost reduction) were not substantiated and have been removed.
 - **Solutions grid** — 6 AI product cards with 3D tilt hover effects and gradient icons
   - Contract Intelligence
   - Litigation Intelligence
@@ -24,7 +33,8 @@ This project adheres to [Semantic Versioning](https://semver.org/) and [Conventi
 - **Technology section** — LexLLM™ orbital diagram with spinning rings and interactive tech nodes
 - **Industries section** — 6 vertical market cards with quantified outcomes
 - **Testimonials grid** — 4 client stories with business impact metrics
-- **Security section** — SOC 2, ISO 27001, GDPR, HIPAA, CCPA, FedRAMP certification cards
+- **Security section** — security-controls cards
+  > Corrected: the original release shipped certification cards (SOC 2, ISO 27001, GDPR, HIPAA, CCPA, FedRAMP) for certifications Lexora AI does not hold. These were removed; the section now describes implemented controls only.
 - **About section** — company story, core values, investor backing (a16z, Sequoia, GV, Bessemer)
 - **Contact/CTA** — demo booking form with animated success state
 - **Footer** — full navigation, social links, certification badges

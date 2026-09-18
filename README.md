@@ -4,252 +4,173 @@
 
 # Lexora AI
 
-### Legal Intelligence for the Modern World
+### AI-assisted legal &amp; immigration document automation
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-6C63FF.svg?style=for-the-badge)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-2.0.0-3ECFCF.svg?style=for-the-badge)](CHANGELOG.md)
-[![Security: SOC2](https://img.shields.io/badge/Security-SOC%202%20Type%20II-38EF7D.svg?style=for-the-badge)](SECURITY.md)
-[![GDPR](https://img.shields.io/badge/GDPR-Compliant-38EF7D.svg?style=for-the-badge)](#)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-6C63FF.svg?style=for-the-badge)](CONTRIBUTING.md)
 
-**End-to-end AI legal technology platform trusted by 500+ law firms and enterprises in 47 jurisdictions.**
+**Document intake, AI-assisted drafting, and case tracking for immigration and legal workflows — with a human reviewer in the loop at every step.**
 
-[🌐 Live Demo](#) · [📖 Documentation](docs/) · [🔐 Security](SECURITY.md) · [🤝 Contributing](CONTRIBUTING.md) · [📋 Wiki](../../wiki)
+[📖 Documentation](docs/) · [🔐 Security](SECURITY.md) · [🤝 Contributing](CONTRIBUTING.md)
+
+</div>
 
 ---
 
-*Transforming how the world practices law — one intelligent document at a time.*
-
-</div>
+> ### ⚠️ Documentation correction notice
+>
+> Earlier revisions of this README, the wiki, and the marketing site described Lexora AI as holding
+> SOC 2 Type II, ISO 27001, HIPAA, CCPA and FedRAMP certification, serving "500+ law firms across 47
+> jurisdictions", and running a proprietary foundation model ("LexLLM™") trained on "500M+ legal
+> documents". **None of those claims were substantiated by anything in this repository, and all of
+> them have been removed.** Lexora AI holds no third-party security certification today. This README
+> now describes only what the code in this repository actually does. See
+> [`docs/CLAIMS_CORRECTION.md`](docs/CLAIMS_CORRECTION.md) for the full record.
 
 ---
 
 ## What is Lexora AI?
 
-Lexora AI is a purpose-built legal intelligence platform powered by **LexLLM™**, our proprietary large language model trained on 500M+ legal documents across every major jurisdiction on Earth. We don't adapt a generic AI to legal work — we built the AI *for* legal work from the ground up.
+Lexora AI is an early-stage product that helps people and small legal teams move document-heavy
+immigration and legal work through a structured, auditable workflow. It uses commercial large
+language models to draft, summarise, and check documents — it does not replace a lawyer, and it does
+not give legal advice.
 
-From contract analysis to litigation prediction, from regulatory compliance to M&A due diligence — Lexora AI handles every dimension of modern legal practice with precision, speed, and enterprise-grade security.
+**What it does today:**
 
----
+| Capability | Where it lives |
+|---|---|
+| Public marketing site | `index.html`, `css/`, `js/` (vanilla ES modules, no build step) |
+| Passwordless sign-in (magic link) | `js/auth.js` + Supabase Auth |
+| Lead / contact capture | `js/forms.js` → `form_submissions` |
+| Immigration intake questionnaire | `immigration.html` → `immigration_intakes` |
+| Case + document tracking | `dashboard.html` → `immigration_cases`, `case_documents` |
+| Marriage green-card product flow | `lexora-ui/app/apply/` → `marriage_cases` |
+| Retrieval over USCIS reference text | `lexora-ui/lib/rag.ts` → `uscis_knowledge` |
+| React re-implementation of the landing page | `lexora-ui/` (Next.js 16, React 19) |
 
-## ✨ Core Products
+**What it does not do:** it does not hold security certifications, it does not train its own
+foundation model, it does not predict litigation outcomes, it does not file anything with any
+government agency on your behalf, and it does not operate in "47 jurisdictions".
 
-| Product | Description | Key Metric |
+## Role in the Balamonis Group platform
+
+This repository is a **venture** in the Balamonis Group ecosystem. Its platform-facing role is the
+**Career &amp; Document Automation Engine** — the service that Lexora Career OS
+([`bsgusa/lexoraai-admin`](https://github.com/bsgusa/lexoraai-admin)) calls when a workflow needs
+document generation, intake, or application tracking.
+
+```
+Lexora Career OS  ──►  Automation Engine (this repo)  ──►  Balamonis Core
+  (user-facing)          job + document workflows           identity, billing,
+                                                            AI Gateway, audit
+```
+
+Identity, billing, AI provider access, and audit logging are **not** this repo's job — they belong to
+Balamonis Core. See [`docs/PLATFORM_INTEGRATION.md`](docs/PLATFORM_INTEGRATION.md).
+
+### Automation guardrails (binding)
+
+1. No application, filing, or outbound submission happens without an explicit, recorded user approval.
+2. No CAPTCHA solving, no authentication bypass, no rate-limit evasion, no terms-of-service violation
+   on any third-party site.
+3. Regulated legal advice is routed to a licensed partner. This product provides technology and
+   document support only.
+4. Every automation step writes an event record so a human can reconstruct what happened.
+
+## Architecture
+
+Two independent frontends, one managed backend. They share no build pipeline.
+
+```
+┌──────────────────────────┐   ┌──────────────────────────┐
+│  Static site (repo root) │   │  lexora-ui/ (Next.js 16) │
+│  *.html + css/ + js/     │   │  React 19 + Tailwind     │
+│  no build step           │   │  shadcn/ui               │
+└────────────┬─────────────┘   └────────────┬─────────────┘
+             │                              │
+             └──────────────┬───────────────┘
+                            ▼
+                    Supabase (managed)
+              Postgres + Auth + RLS on every table
+```
+
+### Static site module graph
+
+`js/config.js` must load first — it creates the Supabase client and exports `APP_CONFIG`, and it
+requires the Supabase UMD bundle to already be in scope as `window.supabase`.
+
+```
+config.js ──► auth.js    (signInWithMagicLink, signOut, getUser, requireAuth)
+          └─► forms.js   (validation + submission)
+main.js   (animations, particle canvas — no auth dependency)
+```
+
+### Database
+
+Schema is applied manually — there is no migration runner:
+
+```bash
+# Paste supabase/schema.sql into Supabase Dashboard → SQL Editor, or:
+supabase db push
+```
+
+Tables: `profiles`, `form_submissions`, `immigration_intakes`, `immigration_cases`,
+`case_documents`, `marriage_cases`, `uscis_knowledge`.
+
+**Row Level Security is enabled on every table.** Users reach only their own rows.
+`form_submissions` permits anonymous INSERT so the marketing site can capture leads. A trigger on
+`auth.users` creates the matching `profiles` row on signup. **Do not add a table without RLS
+policies.**
+
+## Development
+
+### Static site
+```bash
+npm run dev      # npx serve . on port 3000 — no build required
+```
+
+### Next.js app
+```bash
+cd lexora-ui
+npm run dev      # port 3000
+npm run build
+npm run lint
+```
+
+> **Next.js version note:** `lexora-ui/AGENTS.md` records that this Next.js version has breaking API
+> changes relative to common training data. Check `node_modules/next/dist/docs/` for the real API
+> before writing Next.js code here.
+
+## CI
+
+Three jobs run on push to `main`, `claude/**`, and `feature/**`:
+
+| Job | What it does | Blocking |
 |---|---|---|
-| **Contract Intelligence** | AI-powered review, redlining, and risk scoring across 120+ contract types | 97% time reduction |
-| **Litigation Intelligence** | Outcome prediction engine backed by millions of case precedents | 34% win rate improvement |
-| **Regulatory Compliance** | Real-time monitoring across 200+ global regulatory frameworks | Zero compliance gaps |
-| **Legal Research Engine** | Natural language case law synthesis in seconds, not days | 10x faster research |
-| **IP & Patent Intelligence** | Prior art search, FTO analysis, and portfolio management | 94% conflict detection |
-| **M&A Due Diligence** | AI reviews thousands of data room documents in hours | 3x faster deal closing |
+| `validate` | HTML5 + CSS validation, required-file check | yes |
+| `security-scan` | TruffleHog secret detection (diff vs `main`) | yes |
+| `lighthouse` | Performance / accessibility audit | no (`continue-on-error`) |
 
----
+`deploy-preview` runs on PRs only and is currently a placeholder.
 
-## 🏗️ Repository Structure
+## Conventions
 
-```
-lexora-ai/
-│
-├── 📄 index.html              # Main website entry point
-│
-├── 🎨 css/
-│   └── style.css              # All styles — dark theme, animations, responsive
-│
-├── ⚡ js/
-│   └── main.js                # Interactions, particle canvas, scroll effects
-│
-├── 🖼️ assets/
-│   ├── favicon.svg            # SVG brand icon
-│   └── images/                # Static image assets
-│
-├── 📚 docs/
-│   ├── ARCHITECTURE.md        # System architecture overview
-│   ├── API.md                 # API reference
-│   └── DEPLOYMENT.md          # Deployment guide
-│
-├── 🔧 .github/
-│   ├── workflows/             # CI/CD GitHub Actions
-│   ├── ISSUE_TEMPLATE/        # Bug reports, feature requests
-│   └── PULL_REQUEST_TEMPLATE.md
-│
-├── 📋 README.md               # This file
-├── 📝 CHANGELOG.md            # Version history
-├── 🤝 CONTRIBUTING.md         # Contribution guidelines
-├── 🔐 SECURITY.md             # Security policy & reporting
-└── ⚖️  LICENSE                # MIT License
-```
+- **The Supabase anon key in `js/config.js` is intentionally public.** It is safe *only* because RLS
+  is enabled on every table. Never put a service-role key in browser code.
+- **No bundler on the static site.** External libraries load via `<script>` CDN tags before the
+  module scripts. Do not introduce npm imports or CDN `import` statements into the HTML pages.
+- **Commits follow Conventional Commits** (`feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `chore:`).
+- **Deployment** is Vercel (`vercel.json`). Security headers (CSP, X-Frame-Options,
+  X-Content-Type-Options) are set there, not in HTML meta tags.
+- Static site targets **ES2017+** with no transpilation; `lexora-ui/` targets ES2017 via `tsconfig.json`.
 
----
+## Claims policy
 
-## 🚀 Quick Start
+Any number, certification, customer count, or accuracy figure in this repository must be traceable
+to evidence that also lives in this repository. If you cannot point at the evidence, do not write the
+claim. This is enforced by review — see [`CLAUDE.md`](CLAUDE.md).
 
-No build step required — open directly in any browser:
+## License
 
-```bash
-git clone https://github.com/bsgusa/AI-Job-Automation.git
-cd AI-Job-Automation
-open index.html   # macOS
-# or
-start index.html  # Windows
-# or
-xdg-open index.html  # Linux
-```
-
-For local development with live reload:
-
-```bash
-npx serve .
-# → http://localhost:3000
-```
-
----
-
-## 🛡️ Security & Compliance
-
-Lexora AI is built with a **security-first architecture**. Legal data is among the most sensitive information in the world, and we treat it accordingly.
-
-| Standard | Status |
-|---|---|
-| SOC 2 Type II | ✅ Certified |
-| ISO 27001 | ✅ Certified |
-| GDPR | ✅ Compliant |
-| HIPAA | ✅ Compliant |
-| CCPA | ✅ Compliant |
-| FedRAMP | ✅ Authorized |
-
-**Core security principles:**
-- End-to-end AES-256 encryption at rest and in transit
-- Your data **never** trains our models
-- Data residency options: US, EU, UK, APAC
-- Role-based access control (RBAC)
-- Attorney-client privilege preserved by design
-- 99.99% uptime SLA with multi-region failover
-
-See [SECURITY.md](SECURITY.md) for our full security policy and vulnerability reporting process.
-
----
-
-## 🌍 Global Coverage
-
-Lexora AI operates natively across **47 jurisdictions** with deep understanding of local legal systems:
-
-- 🇺🇸 **United States** — Federal & all 50 state court systems
-- 🇬🇧 **United Kingdom** — England & Wales, Scotland, Northern Ireland
-- 🇪🇺 **European Union** — All 27 member states
-- 🇦🇺 **Australia** — Federal & state courts
-- 🇨🇦 **Canada** — Common law & civil law provinces
-- 🌏 **APAC** — Singapore, Hong Kong, Japan, UAE, India
-- *And 30+ more jurisdictions...*
-
----
-
-## 🧠 Technology
-
-### LexLLM™ — Our Legal-Native AI
-
-Unlike general-purpose LLMs adapted for legal use, **LexLLM™** was trained from the ground up on:
-
-- 500M+ legal documents, contracts, and case law
-- Statutes and regulatory filings from 47 jurisdictions
-- 50+ years of litigation outcomes and judicial decisions
-- Real-time regulatory updates from 200+ frameworks
-
-### Architecture
-
-```
-                    ┌─────────────────────────────┐
-                    │        LEXORA AI PLATFORM     │
-                    └─────────────┬───────────────-┘
-                                  │
-          ┌───────────┬───────────┼───────────┬───────────┐
-          │           │           │           │           │
-       [NLP]       [RAG]       [OCR]       [KG]       [API]
-          │           │           │           │           │
-          └───────────┴───────────┼───────────┴───────────┘
-                                  │
-                         ┌────────┴────────┐
-                         │   LexLLM™ Core  │
-                         │  500M+ Docs     │
-                         │  47 Jurisd.     │
-                         └─────────────────┘
-```
-
----
-
-## 📊 Proven Results
-
-| Metric | Result |
-|---|---|
-| Documents analyzed | 2.4M+ |
-| Client satisfaction | 98% |
-| Average cost reduction | 60% |
-| Jurisdictions covered | 47+ |
-| Law firms & enterprises | 500+ |
-| Analysis speed | < 4 seconds per 500-page contract |
-
----
-
-## 💬 Client Testimonials
-
-> *"Lexora AI reduced our contract review time from 3 days to 45 minutes. We've processed over 12,000 contracts in the past year alone."*
->
-> **Sarah Chen** — General Counsel, NovaTech Global
-
-> *"The litigation prediction engine has fundamentally changed how we advise clients on settlement decisions. Our win rate improved by 34% in the first year."*
->
-> **Michael Rodriguez** — Partner, Rodriguez & Associates
-
-> *"We ran M&A due diligence on a $2.3B acquisition. Lexora reviewed 47,000 documents in 72 hours."*
->
-> **James Thornton** — Managing Director, Apex Capital
-
----
-
-## 🤝 Contributing
-
-We welcome contributions from the legal tech community! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting a pull request.
-
-**Quick contribution steps:**
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'feat: add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
----
-
-## 📋 Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for a full history of releases and changes.
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🔗 Links
-
-| Resource | URL |
-|---|---|
-| Website | [lexora.ai](#) |
-| Documentation | [docs.lexora.ai](#) |
-| API Reference | [api.lexora.ai](#) |
-| Status Page | [status.lexora.ai](#) |
-| Security | [security.lexora.ai](#) |
-| LinkedIn | [linkedin.com/company/lexora-ai](#) |
-| Twitter | [@LexoraAI](#) |
-
----
-
-<div align="center">
-
-**Built with ❤️ for the global legal community**
-
-*Backed by Andreessen Horowitz · Sequoia Capital · Google Ventures · Bessemer*
-
-© 2026 Lexora AI, Inc. All rights reserved.
-
-</div>
+MIT — see [LICENSE](LICENSE).
