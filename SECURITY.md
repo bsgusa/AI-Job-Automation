@@ -20,13 +20,12 @@ Security is foundational to everything we build at Lexora AI. Legal data is amon
 
 | Standard | Status | Scope |
 |---|---|---|
-| SOC 2 Type II | ✅ Certified | Security, Availability, Confidentiality |
-| ISO 27001 | ✅ Certified | Information Security Management |
-| GDPR | ✅ Compliant | EU data processing |
-| HIPAA | ✅ Compliant | Healthcare data handling |
-| CCPA | ✅ Compliant | California consumer data |
-| FedRAMP | ✅ Authorized | US government cloud services |
-
+| SOC 2 Type II | ⬜ Not certified | Not currently held; no certification is claimed |
+| ISO 27001 | ⬜ Not certified | Not currently held; no certification is claimed |
+| GDPR | ⬜ Not certified | Not currently held; no certification is claimed |
+| HIPAA | ⬜ Not certified | Not currently held; no certification is claimed |
+| CCPA  | ⬜ Not certified | Not currently held; no certification is claimed |
+| FedRAMP | ⬜ Not certified | Not currently held; no certification is claimed |
 ---
 
 ## Security Architecture

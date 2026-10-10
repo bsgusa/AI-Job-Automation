@@ -1,5 +1,12 @@
 # Security & Compliance
 
+> ### ⚠️ Correction notice
+>
+> An earlier revision of this page listed SOC 2 Type II, ISO 27001, GDPR, HIPAA, CCPA/CPRA and
+> FedRAMP as held certifications. **Lexora AI holds none of them.** The compliance table now reflects
+> that. This page describes only controls that are actually implemented. See
+> [`docs/CLAIMS_CORRECTION.md`](../docs/CLAIMS_CORRECTION.md).
+
 Lexora AI was built with security as a foundational principle, not an afterthought. Legal data is among the most sensitive information in the world.
 
 ---
@@ -8,25 +15,24 @@ Lexora AI was built with security as a foundational principle, not an afterthoug
 
 | Certification | Status | Scope |
 |---|---|---|
-| **SOC 2 Type II** | ✅ Certified | Security, Availability, Confidentiality, Privacy |
-| **ISO 27001** | ✅ Certified | Information Security Management System |
-| **GDPR** | ✅ Compliant | EU data processing & residency |
-| **HIPAA** | ✅ Compliant | Healthcare data handling |
-| **CCPA / CPRA** | ✅ Compliant | California consumer data rights |
-| **FedRAMP** | ✅ Authorized | US Government cloud services |
-
+| **SOC 2 Type II** | ⬜ Not certified | Not currently held; no certification is claimed |
+| **ISO 27001** | ⬜ Not certified | Not currently held; no certification is claimed |
+| **GDPR** | ⬜ Not certified | Not currently held; no certification is claimed |
+| **HIPAA** | ⬜ Not certified | Not currently held; no certification is claimed |
+| **CCPA / CPRA** | ⬜ Not certified | Not currently held; no certification is claimed |
+| **FedRAMP** | ⬜ Not certified | Not currently held; no certification is claimed |
 ---
 
 ## Data Protection Principles
 
 ### 1. Your Data Never Trains Our Models
-Client data is **completely isolated** from our model training pipeline. Every piece of data you upload is used exclusively to serve your requests and is never incorporated into LexLLM™ updates.
+We do not train models on your data. Lexora AI calls commercial LLM APIs under terms that exclude your content from provider training, and we do not run a training pipeline of our own.
 
 ### 2. Encryption Everywhere
-- **At rest:** AES-256-GCM encryption for all stored data
+- **At rest:** AES-256 encryption for stored data, provided by our managed Postgres and storage layer
 - **In transit:** TLS 1.3 for all connections, enforced HSTS
-- **Key management:** HSM-backed key storage with automatic 90-day rotation
-- **Database:** Column-level encryption for sensitive fields
+- **Key management:** handled by our managed Postgres and storage provider
+- **Access control:** row-level security enforced in the database on every table
 
 ### 3. Data Residency
 Choose where your data lives:

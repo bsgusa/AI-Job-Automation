@@ -1,95 +1,72 @@
 # Technology
 
-## LexLLM™ — Legal-Native AI
+> ### ⚠️ Correction notice
+>
+> An earlier revision of this page described certifications, customer counts, jurisdiction coverage,
+> accuracy figures, and a proprietary foundation model ("LexLLM™") that were not substantiated by
+> anything in this repository. Those claims have been removed. See
+> [`docs/CLAIMS_CORRECTION.md`](../docs/CLAIMS_CORRECTION.md).
 
-LexLLM™ is Lexora AI's proprietary large language model, built from scratch for legal work.
+## How the AI layer works
 
-### Training Data
-| Source | Volume |
+Lexora AI does **not** train a foundation model. It orchestrates commercial large language models
+behind a retrieval layer that we build and control.
+
+| Layer | What it is |
 |---|---|
-| Court opinions & case law | 180M+ documents |
-| Contracts & agreements | 120M+ documents |
-| Statutes & regulations | 80M+ documents |
-| Legal commentary & treatises | 60M+ documents |
-| Regulatory filings | 40M+ documents |
-| Academic legal literature | 20M+ documents |
-| **Total** | **500M+ documents** |
+| Model access | Commercial LLM APIs, reached through the Balamonis AI Gateway |
+| Retrieval | Passage retrieval over the customer's own document set plus `uscis_knowledge` reference text (`lexora-ui/lib/rag.ts`) |
+| Grounding | Answers cite the source passage so a reviewer can verify each statement |
+| Review | A human reviews output before it is used or filed. No automatic submission. |
 
-### Architecture
-- **Base model:** Custom transformer architecture optimized for long legal documents
-- **Context window:** 200K tokens (handle entire contracts in one pass)
-- **Fine-tuning:** Jurisdiction-specific models for 47 legal systems
-- **RAG layer:** Real-time retrieval from live legal databases
-- **Citator:** Integrated validity checking against all major citation systems
+We publish no accuracy percentage. Groundedness, citation accuracy, and reviewer-correction rate are
+the metrics we intend to hold ourselves to; until we measure them reproducibly we will not quote a
+number.
 
 ---
 
-## System Architecture
+## System architecture
+
+Two independent frontends, one managed backend. They share no build pipeline and no code.
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    CLIENT LAYER                              │
-│         Web App  ·  API  ·  Word Plugin  ·  Mobile          │
-└───────────────────────────┬─────────────────────────────────┘
-                             │ TLS 1.3
-┌───────────────────────────▼─────────────────────────────────┐
-│                    API GATEWAY                               │
-│          Auth  ·  Rate Limiting  ·  WAF  ·  Routing         │
-└──────────┬──────────┬──────────┬──────────┬────────────────-┘
-           │          │          │          │
-    ┌──────▼──┐ ┌─────▼───┐ ┌───▼──────┐ ┌▼──────────┐
-    │Contract │ │Research │ │Compliance│ │Litigation │
-    │ Service │ │ Service │ │ Service  │ │ Service   │
-    └──────┬──┘ └─────┬───┘ └───┬──────┘ └┬──────────┘
-           └──────────┴──────────┴─────────┘
+┌──────────────────────────┐   ┌──────────────────────────┐
+│  Static site (repo root) │   │  lexora-ui/ (Next.js 16) │
+│  *.html + css/ + js/     │   │  React 19 + Tailwind     │
+│  no build step           │   │  shadcn/ui               │
+└────────────┬─────────────┘   └────────────┬─────────────┘
+             │                              │
+             └──────────────┬───────────────┘
+                            ▼
+                  Supabase (managed)
+        ┌───────────────────────────────────────┐
+        │  Postgres    Auth (magic link)        │
+        │  RLS on every table                   │
+        └───────────────────────────────────────┘
                             │
-                   ┌────────▼────────┐
-                   │   LexLLM™ Core   │
-                   │  Inference Layer  │
-                   └────────┬─────────┘
-                            │
-              ┌─────────────┼─────────────┐
-              │             │             │
-       ┌──────▼──┐   ┌──────▼──┐   ┌─────▼───┐
-       │  Vector │   │  Graph  │   │  Legal  │
-       │   DB    │   │   DB    │   │   DB    │
-       └─────────┘   └─────────┘   └─────────┘
+                            ▼
+                  Balamonis AI Gateway
+              (model routing, cost, audit)
 ```
 
----
+There is no custom server-side code in this repository. There is no API gateway, WAF, or Word plugin.
 
-## Frontend Technology
+### Static site module graph
 
-The Lexora AI website is built with **zero dependencies** for maximum performance and security:
+`js/config.js` must load first — it creates the Supabase client and requires the Supabase UMD
+bundle already in scope as `window.supabase`.
 
-| Component | Technology | Rationale |
-|---|---|---|
-| Framework | Vanilla HTML5 | No bundle overhead, instant load |
-| Styling | CSS Custom Properties | Native theming, no preprocessor |
-| Animations | CSS Keyframes + rAF | GPU-accelerated, no library |
-| Scroll Effects | IntersectionObserver | Performant, no event listeners |
-| Particles | Canvas API | Native browser, no WebGL needed |
-| Fonts | Google Fonts CDN | Cached globally, fast load |
+```
+config.js ──► auth.js    (signInWithMagicLink, signOut, getUser, requireAuth)
+          └─► forms.js   (validation + submission)
+main.js   (animations, particle canvas — no auth dependency)
+```
 
-### Performance Targets
-| Metric | Target | Status |
-|---|---|---|
-| First Contentful Paint | < 1.0s | ✅ |
-| Largest Contentful Paint | < 2.5s | ✅ |
-| Total Blocking Time | < 50ms | ✅ |
-| Cumulative Layout Shift | < 0.05 | ✅ |
-| Lighthouse Performance | > 90 | ✅ |
-| Lighthouse Accessibility | > 95 | ✅ |
+### Data model
 
----
+`profiles`, `form_submissions`, `immigration_intakes`, `immigration_cases`,
+`case_documents`, `marriage_cases`, `uscis_knowledge`.
 
-## Infrastructure
-
-- **Cloud:** Multi-region AWS deployment
-- **CDN:** CloudFront with 400+ edge locations
-- **Uptime SLA:** 99.99% with automatic failover
-- **Scaling:** Auto-scaling inference with GPU clusters
-- **Monitoring:** Datadog, PagerDuty, custom SLO dashboards
-- **CI/CD:** GitHub Actions → staging → canary → production
-
-See [[Deployment]] for hosting options.
+Row Level Security is enabled on all of them. `form_submissions` permits anonymous INSERT so the
+marketing site can capture leads. The anon key in `js/config.js` is public by design and is safe
+only because RLS is enforced — never put a service-role key in browser code.

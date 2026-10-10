@@ -1,36 +1,37 @@
 # Frequently Asked Questions
 
+> ### ⚠️ Correction notice
+>
+> An earlier revision of this page described certifications, customer counts, jurisdiction coverage,
+> accuracy figures, and a proprietary foundation model ("LexLLM™") that were not substantiated by
+> anything in this repository. Those claims have been removed. See
+> [`docs/CLAIMS_CORRECTION.md`](../docs/CLAIMS_CORRECTION.md).
+
 ---
 
 ## General
 
 ### What is Lexora AI?
-Lexora AI is a purpose-built legal technology platform powered by LexLLM™, our proprietary AI trained on 500M+ legal documents. We provide AI tools for contract review, litigation strategy, compliance monitoring, legal research, IP management, and M&A due diligence.
+Lexora AI is an early-stage product for AI-assisted legal and immigration document work: document intake, AI-assisted drafting and summarisation, and case/document tracking. It supports legal professionals — it does not give legal advice and does not replace a lawyer.
 
 ### Who uses Lexora AI?
-We serve 500+ organizations including:
-- Global law firms (BigLaw to boutique)
-- In-house legal teams at Fortune 500 companies
-- Financial services firms
-- Healthcare organizations
-- Technology companies
-- Government agencies in 12 countries
+We are pre-scale and onboarding our first customers. We publish no customer count because we cannot substantiate one. The product is built for individuals working through immigration paperwork and for small legal teams handling document-heavy matters.
 
 ### In what jurisdictions does Lexora AI work?
-We operate natively across 47 jurisdictions including the US (all 50 states), UK, all 27 EU member states, Australia, Canada, Singapore, Hong Kong, UAE, Japan, India, and more.
+Today the product's reference content is US immigration focused (`uscis_knowledge`). We do not claim native coverage of other jurisdictions. Document workflows themselves are jurisdiction-agnostic, but the reference material is not.
 
 ---
 
 ## Technology
 
 ### Is Lexora AI built on ChatGPT or another general-purpose AI?
-No. LexLLM™ is our proprietary large language model trained from scratch on 500M+ legal documents. We don't adapt a general-purpose model — we built specifically for legal work.
+Lexora AI is built on commercial large language models, reached through the Balamonis AI Gateway. We do not train a foundation model. What we build and control is the retrieval, grounding, prompting, and review layer around those models.
 
 ### How accurate is Lexora AI?
-Our contract analysis achieves **94%+ accuracy** on risk flag detection, validated against expert attorney review. For litigation prediction, we achieve **85%+ accuracy** on outcome prediction across our training jurisdictions. All AI outputs include confidence scores and source citations.
+We do not publish an accuracy figure, because we do not yet measure one reproducibly. Outputs cite the source passage they came from so a reviewer can verify each statement. Treat every output as a draft for human review.
 
 ### How fast is it?
-Lexora AI analyzes a 500-page contract in under **4 seconds**. Legal research that typically takes days is completed in seconds.
+Latency depends on document length and the model handling the request. We do not publish a benchmark figure we cannot reproduce on demand.
 
 ### Can Lexora AI hallucinate or make mistakes?
 Like all AI systems, Lexora AI can make errors. That's why:
@@ -50,7 +51,7 @@ Like all AI systems, Lexora AI can make errors. That's why:
 You choose your data residency: US, EU, UK, or APAC. Your data never leaves your designated region.
 
 ### Is Lexora AI GDPR compliant?
-Yes. We are fully GDPR compliant with EU data residency, DPA templates, sub-processor transparency, and data subject rights support.
+We are not in a position to claim GDPR compliance. We implement encryption in transit and at rest, per-tenant row-level security, and audit logging on privileged actions. We do not currently offer EU data residency or a DPA. If you have a GDPR requirement, talk to us before you sign anything.
 
 ### Does Lexora AI preserve attorney-client privilege?
 Yes. Our architecture is designed to preserve attorney-client privilege. Data is isolated per client matter, access is role-controlled, and we provide audit trails for privilege log support.
