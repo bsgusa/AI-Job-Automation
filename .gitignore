@@ -1,1 +1,21 @@
-.mcp.json
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.next/
+out/
+
+# Next.js
+.vercel
+*.tsbuildinfo
+
+# Secrets — never commit
+.env
+.env.local
+.env.*.local
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
